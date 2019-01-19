@@ -2,6 +2,7 @@
     "name": "efecanaltay/canguroo",
     "type": "project",
     "description": "a shopping app with Laravel",
+    "language": "php",
     "repositories": [
         {"type": "composer", "url": "https://repo.packagist.com/wrisesoftware/"},
         {"packagist.org": true}
