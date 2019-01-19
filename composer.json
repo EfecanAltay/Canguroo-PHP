@@ -5,7 +5,7 @@
     "language": "php",
     "repositories": [
         {"type": "composer", "url": "https://repo.packagist.com/wrisesoftware/"},
-        {"packagist.org": true}
+        {"packagist.org": false}
     ],
     "keywords": [
         "canguroo",
