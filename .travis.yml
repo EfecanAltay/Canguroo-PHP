@@ -5,11 +5,13 @@ php:
 
 before_script:
     - composer install
+    - php artisan key:generate
 
 deploy:
   provider: heroku
   api_key:
     secure: iB9rjudsfqK1nDq2twv2zwY0ZrWogaFku0n5tHEJn14CtUYXG730aUCOA3t9bIH94LNhqbmVEbHxkwYnT3y40YdHxXxprZUAuvaGg/0ItGq8Q2fi9p51mxE9GSGS6bo2deqmgfTEQw61MUdvENEhQCWTUKihmxEmWZE8ZF5dsiXP2LDKxxmdm8ikgAPi0hlUIrWVRDR7zeSjTiE1Xt90AzHl0hJbL2vQ7zFKRBdTzKVGLrxJPMMs81j5n8agUtwJhcj1ESNkrTdl7QNrXDEBSibcg9rxhyngVtg2Cc9G+65UFRYYl1zw+0ZofntOEMZ7OmARprYoDdSa3SOjno31VKpzaA3arAtq8UwQeGQrhtu8LY+cNCqqWNCA47PRFTYIGt5bClm+da28FC2DVMNcSNbBsoGCGjCCwoTYeJQ0lRk+/5KQGJMdBRZGeWka8UEe3YpDJdAoA2kQex1zHfzorR4EljemXXptQeNleenk+DBUCr/UPInvvZNXWAu9n2V2VhKuUoss6OI1eIi0tMl94MMcLj6DT/WKj+Fh+54LAr5Y1KK6RKkE0TxsQtY2tf5TOjMIjio+klFv7u3nucum6m5qu6SZOCvzVI7letIBDSE8Y42ZXTKGt/yZm2j5HwZwYuIiOKruS+7uf0uBLmMseEGhiUoVkSgnAGr7DfDRpEE=
   app: canguroo
-  scrpit:
+
+scrpit:
     - phpunit --Bootstrap ventor/autoload.php tests/Unit/ExampleTest 
