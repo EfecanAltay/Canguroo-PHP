@@ -5,7 +5,6 @@ php:
 
 before_script:
     - composer install
-    - php artisan key:generate
 
 deploy:
   provider: heroku
@@ -14,4 +13,4 @@ deploy:
   app: canguroo
 
 scrpit:
-    - phpunit --Bootstrap ventor/autoload.php tests/Unit/ExampleTest 
+    - phpunit --Bootstrap ventor/autoload.php tests/Unit/ExampleTest
