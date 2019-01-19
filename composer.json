@@ -1,14 +1,16 @@
 {
-    "name": "laravel/laravel",
+    "name": "EfecanAltay/Canguroo-PHP",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "a shopping app with Laravel",
     "repositories": [
         {"type": "composer", "url": "https://repo.packagist.com/wrisesoftware/"},
-        {"packagist.org": false}
+        {"packagist.org": true}
     ],
     "keywords": [
-        "framework",
-        "laravel"
+        "canguroo",
+        "laravel",
+        "shopping",
+        "template"
     ],
     "license": "MIT",
     "require": {
