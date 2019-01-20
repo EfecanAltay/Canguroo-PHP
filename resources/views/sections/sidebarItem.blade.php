@@ -7,7 +7,7 @@
 	        	<h1 class="sidebarContentHeader font-weight-bold" style="z-index: 2;"><b>{{ $sidebarTitle }}</b></h1>
 	        	<ul class="sidebarContentList">
 	        	<?php
-	        	//$links = array();
+	        	$links = array();
 	        	?>
 	        		@if(isset($links))
 		        		@foreach ($links as $link)
