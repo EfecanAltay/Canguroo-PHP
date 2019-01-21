@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 if (Request::server('HTTP_X_FORWARDED_PROTO') == 'https')
 {
 	Log::info('redirect secure page ...');
@@ -20,7 +19,7 @@ if (Request::server('HTTP_X_FORWARDED_PROTO') == 'https')
 
 if (App::environment() === 'production') {
 	Log::info('-> forcing Schema ...');
- //   URL::forceScheme('https');
+ //   URL::forceScheme('https'); //!!! not for heroku
 }
 
 Route::get('/', function () {
