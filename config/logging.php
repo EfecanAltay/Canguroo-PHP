@@ -1,4 +1,4 @@
-f<?php
+<?php
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;

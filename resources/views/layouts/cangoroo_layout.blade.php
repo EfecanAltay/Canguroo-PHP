@@ -1,8 +1,6 @@
-
 <!--
   Sidebarda foreach hatası var çözülecek...
 -->
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -21,7 +19,7 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{ secure_asset('js/app.js') }}"></script>
     </head>
-    <body >
+    <body>
       <div style="width: 100%; height: 60px; background-color: black ; color: white;"> Adds</div>
       @component('sections.navbar')
       @endcomponent
