@@ -22,7 +22,6 @@ class Kernel extends HttpKernel
         // appending custom middleware 
         //\App\Http\Middleware\HttpsProtocol::class,
     ];
-
     /**
      * The application's route middleware groups.
      *
@@ -39,7 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             //\App\Http\Middleware\HttpsProtocol::class,
         ],
-
+        
         'api' => [
             'throttle:60,1',
             'bindings',
@@ -64,7 +63,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
-
     /**
      * The priority-sorted list of middleware.
      *
