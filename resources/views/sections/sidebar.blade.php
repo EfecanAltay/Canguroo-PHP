@@ -24,7 +24,7 @@
               
               @component('sections.sidebarItem' , ['links' => $links ])
                 @slot('backgroundImage')
-                  imgs/home_evroment_sidebarcontent_background.jpg
+                  secure_asset(imgs/home_evroment_sidebarcontent_background.jpg);
                 @endslot
                  @slot('sidebarTitle')
                  Elektronik
