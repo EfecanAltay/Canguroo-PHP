@@ -20,7 +20,7 @@ if (Request::server('HTTP_X_FORWARDED_PROTO') == 'https')
 
 if (App::environment() === 'production') {
 	Log::info('-> forcing Schema ...');
-    URL::forceScheme('https');
+ //   URL::forceScheme('https');
 }
 
 Route::get('/', function () {
