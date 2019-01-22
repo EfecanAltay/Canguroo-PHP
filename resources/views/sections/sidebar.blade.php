@@ -7,87 +7,44 @@
             <div class="list-group list-group-flush">
               <?php
 
-                $links = [
+                $electronicBg = asset('imgs/electronic_sidebarcontent_background.jpg');
+                $homeEvromentBg = asset('imgs/home_evroment_sidebarcontent_background.jpg');
+                $clothingBg = asset('imgs/clothes_sidebarcontent_background.jpg');
+                
 
-                  [
-                        'url' => 'asd',
-                        'name' => 'asd'
-                  ],
-                  [
-                        'url' => 'dfg',
-                        'name' => 'dgf'
-                  ]          
-                ];
-              $links =[ ['url' => "asd" , 'name' => "asd" ] ,['url' => "asd" , 'name' => "asd" ] ,['url' => "asd" , 'name' => "asd" ] ];
-
+                $elektronikLinks =[ ['url' => "asd" , 'name' => "Akıllı Telefon" ] ,['url' => "asd" , 'name' => "Bilgisayar" ] ,['url' => "asd" , 'name' => "Elektronik Cihazlar" ] ];
+                $homeEvromentLinks =[ ['url' => "asd" , 'name' => "asd" ] ,['url' => "asd" , 'name' => "asd" ] ,['url' => "asd" , 'name' => "asd" ] ];
+                $clothingBgLinks =[ ['url' => "asd" , 'name' => "asd" ] ,['url' => "asd" , 'name' => "asd" ] ,['url' => "asd" , 'name' => "asd" ] ];
+                
               ?>
               
-              @component('sections.sidebarItem' , ['links' => $links ])
+              @component('sections.sidebarItem' , ['links' => $elektronikLinks ])
                 @slot('backgroundImage')
-                  secure_asset(imgs/home_evroment_sidebarcontent_background.jpg);
+                  {{ $electronicBg }}
                 @endslot
                  @slot('sidebarTitle')
                  Elektronik
                 @endslot
               @endcomponent
-              <!--
-              @component('sections.sidebarItem',['links' => 'links'])
+
+              @component('sections.sidebarItem' , ['links' => $homeEvromentLinks ])
                 @slot('backgroundImage')
-                  imgs/home_evroment_sidebarcontent_background.jpg
+                  {{ $homeEvromentBg }}
                 @endslot
                  @slot('sidebarTitle')
                  Ev Eşyası
                 @endslot
               @endcomponent
-              @component('sections.sidebarItem' ,['links' => 'links'])
+
+              @component('sections.sidebarItem' , ['links' => $clothingBgLinks ])
                 @slot('backgroundImage')
-                  imgs/clothes_sidebarcontent_background.jpg
+                  {{ $clothingBg }}
                 @endslot
                  @slot('sidebarTitle')
-                 Giyim & Ayakkabı
+                 Giyim ve Ayakkabı
                 @endslot
               @endcomponent
-              @component('sections.sidebarItem' ,['links' => 'links'])
-                @slot('backgroundImage')
-                  imgs/mom_and_baby_sidebarcontent_background.jpg
-                @endslot
-                 @slot('sidebarTitle')
-                 Anne & Bebek
-                @endslot
-              @endcomponent
-              @component('sections.sidebarItem' , ['links' => 'links'])
-                @slot('backgroundImage')
-                  imgs/cosmetic_sidebarcontent_background.jpg
-                @endslot
-                 @slot('sidebarTitle')
-                 Kozmetik & Kişisel Bakım
-                @endslot
-              @endcomponent
-              @component('sections.sidebarItem' , ['links' => 'links'])
-                @slot('backgroundImage')
-                  imgs/sports_sidebarcontent_background.jpg
-                @endslot
-                 @slot('sidebarTitle')
-                 Spor
-                @endslot
-              @endcomponent
-              @component('sections.sidebarItem' ,['links' => 'links'])
-                @slot('backgroundImage')
-                  imgs/music_sidebarcontent_background.jpg
-                @endslot
-                 @slot('sidebarTitle')
-                 Müzik ,Kitap ,Film ,Oyun
-                @endslot
-              @endcomponent
-              @component('sections.sidebarItem' , ['links' => 'links'])
-                @slot('backgroundImage')
-                  imgs/holiday_sidebarcontent_background.jpg
-                @endslot
-                @slot('sidebarTitle')
-                 Bilet , Tatil ve Eğlence
-                @endslot
-              @endcomponent
-            -->
+
             </div>
           </div>
         </div>

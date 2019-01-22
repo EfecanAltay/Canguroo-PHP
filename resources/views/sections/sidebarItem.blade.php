@@ -6,9 +6,7 @@
         	<div style="position: absolute; z-index: 2;  padding:20px; width: 100%; height: 100%">
 	        	<h1 class="sidebarContentHeader font-weight-bold" style="z-index: 2;"><b>{{ $sidebarTitle }}</b></h1>
 	        	<ul class="sidebarContentList">
-	        	<?php
-	        	$links = array();
-	        	?>
+	        
 	        		@if(isset($links))
 		        		@foreach ($links as $link)
 		        			<?php
