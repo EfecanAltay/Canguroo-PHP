@@ -24,18 +24,18 @@
       <div style="width: 100%; height: 60px; background-color: black ; color: white;"> Adds</div>
       @component('sections.navbar')
       @endcomponent
-      <div class="row" style="padding: 0px;">
-      @component('sections.sidebar')
-      @endcomponent
-        <div class="col-md-9 col-lg-9 flex" style="top:20px; margin:0px; background-color: #D0CFCF">
-          @component('sections.sidebarItemContentList')
-          @endcomponent
-          @component('sections.breadcrumb')
-          @endcomponent
-          <div  id="content" style="padding: 10px; margin-top: 10px; font-size:30px">
-          @component('sections.content')
-          @endcomponent
-          </div>
+      <div style="width: 100%; margin: 0px; padding: 0px; ">
+        @component('sections.sidebar')
+        @endcomponent
+        <div style="margin:0px auto; padding:0px; height: 100%; width:100%;">
+            @component('sections.sidebarItemContentList')
+            @endcomponent
+            @component('sections.breadcrumb')
+            @endcomponent
+            <div  class="cContent">
+            @component('sections.content')
+            @endcomponent
+            </div>
         </div>
       </div>
       @component('sections.footer')

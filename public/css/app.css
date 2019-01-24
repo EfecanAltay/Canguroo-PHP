@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 
-
 .sidebarContent{ 
 	position: absolute; 
 	display: none; 
@@ -30,8 +29,26 @@ ul.sidebarContentList{
 }
 
 .cNavbar{
-	border-bottom: 2px solid black;
-	background-color: #FFF2E6;
+	border-bottom: 3px solid gray;
+	background-color: #D0CFCF
+}
+.cNavbar{
+	color:white;
+}
+.cNavbarItem{
+	color:white;
+}
+
+.cSidebar{
+	position: relative;
+	padding-top:0px;
+	margin: 0px;
+	margin-top: 0px;
+	width: 300px; 
+}
+.cContent{
+	padding: 0px; margin: 40px; padding: 10px; font-size:30px;
+
 }
 
 /*!

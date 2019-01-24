@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand flex-column flex-md-row cNavbar" style="width: 100%; height:140px;">
+<nav class="navbar navbar-expand cNavbar" style="width: 100%; height:140px;">
   <a class="navbar-brand" href="#">
     <h1>
     Cangoroo.com
@@ -24,7 +24,7 @@
   </div>
 </nav>
 
-<nav  id="navbar" class="navbar navbar-expand flex-column flex-md-row cNavbar" style=" display: none ; position:fixed; top:0px; width: 100%; z-index: 999999999;border-color: black" >
+<nav  id="navbar" class="navbar navbar-expand flex-column flex-md-row cNavbar" style=" display: none ; position:fixed; top:0px; width: 100%; z-index: 999999999;" >
   <a class="navbar-brand" href="#"><h1>
     Cangoroo.com
   </h1></a>
