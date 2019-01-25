@@ -18,7 +18,7 @@
                 
               ?>
               
-              @component('sections.sidebarItem' , ['links' => $elektronikLinks ])
+              @component('sections.cSidebar.sidebarItem' , ['links' => $elektronikLinks ])
                 @slot('backgroundImage')
                   {{ $electronicBg }}
                 @endslot
@@ -27,7 +27,7 @@
                 @endslot
               @endcomponent
 
-              @component('sections.sidebarItem' , ['links' => $homeEvromentLinks ])
+              @component('sections.cSidebar.sidebarItem' , ['links' => $homeEvromentLinks ])
                 @slot('backgroundImage')
                   {{ $homeEvromentBg }}
                 @endslot
@@ -36,7 +36,7 @@
                 @endslot
               @endcomponent
 
-              @component('sections.sidebarItem' , ['links' => $clothingBgLinks ])
+              @component('sections.cSidebar.sidebarItem' , ['links' => $clothingBgLinks ])
                 @slot('backgroundImage')
                   {{ $clothingBg }}
                 @endslot
@@ -45,7 +45,7 @@
                 @endslot
               @endcomponent
               
-              @component('sections.sidebarItem' , ['links' => $clothingBgLinks ])
+              @component('sections.cSidebar.sidebarItem' , ['links' => $clothingBgLinks ])
                 @slot('backgroundImage')
                   {{ $clothingBg }}
                 @endslot
@@ -54,7 +54,7 @@
                 @endslot
               @endcomponent
               
-              @component('sections.sidebarItem' , ['links' => $clothingBgLinks ])
+              @component('sections.cSidebar.sidebarItem' , ['links' => $clothingBgLinks ])
                 @slot('backgroundImage')
                   {{ $clothingBg }}
                 @endslot

@@ -1,3 +1,6 @@
+<?php
+  $navbarPath = 'sections.cNavbar.';
+?>
 <nav class="navbar navbar-expand cNavbar" style="width: 100%; height:140px;">
   <a class="navbar-brand" href="#">
     <h1>
@@ -6,7 +9,7 @@
   </a>
   <div class="collapse navbar-collapse" >
     <ul class="navbar-nav navbar-collapse">
-        @component('sections.leftbuttonlist_navbar')
+        @component( $navbarPath.'leftbuttonlist_navbar')
         @endcomponent
         <li class="nav-item navbar-collapse">
           <div class="input-group">
@@ -18,7 +21,7 @@
        </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-      @component('sections.rightbuttonlist_navbar')
+      @component( $navbarPath.'rightbuttonlist_navbar')
       @endcomponent
     </ul>
   </div>
@@ -33,7 +36,7 @@
   </button>
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav navbar-collapse">
-        @component('sections.leftbuttonlist_navbar')
+        @component($navbarPath.'leftbuttonlist_navbar')
         @endcomponent
         <li class="nav-item navbar-collapse">
           <div class="input-group mb-3">
@@ -45,7 +48,7 @@
        </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-      @component('sections.rightbuttonlist_navbar')
+      @component($navbarPath.'rightbuttonlist_navbar')
       @endcomponent
     </ul>
   </div>

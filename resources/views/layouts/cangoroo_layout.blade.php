@@ -22,13 +22,13 @@
     </head>
     <body>
       <div style="width: 100%; height: 60px; background-color: black ; color: white;"> Adds</div>
-      @component('sections.navbar')
+      @component('sections.cNavbar.navbar')
       @endcomponent
       <div style="width: 100%; margin: 0px; padding: 0px; ">
-        @component('sections.sidebar')
+        @component('sections.cSidebar.sidebar')
         @endcomponent
         <div style="margin:0px auto; padding:0px; height: 100%; width:100%;">
-            @component('sections.sidebarItemContentList')
+            @component('sections.cSidebar.sidebarItemContentList')
             @endcomponent
             @component('sections.breadcrumb')
             @endcomponent
