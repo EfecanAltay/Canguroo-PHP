@@ -17,8 +17,11 @@
         <script src="semantic/out/semantic.min.js"></script>
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/cCarousel.css') }}" rel="stylesheet">
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <link rel="script" href="{{ asset('bootstrap/js/bootstrap.js') }}">
+
     </head>
     <body>
       <div style="width: 100%; height: 60px; background-color: black ; color: white;"> Adds</div>
@@ -30,8 +33,12 @@
         <div style="margin:0px auto; padding:0px; height: 100%; width:100%;">
             @component('sections.cSidebar.sidebarItemContentList')
             @endcomponent
+            @component('sections.carousel')
+            @endcomponent
+            <!--
             @component('sections.breadcrumb')
             @endcomponent
+            -->
             <div  class="cContent">
             @component('sections.content')
             @endcomponent
