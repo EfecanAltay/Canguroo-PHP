@@ -1,0 +1,16 @@
+
+body{
+	background-color: gray;
+}
+.cLoginPane{
+	width: 400px; 
+	height: 400px; 
+	background-color: white; 
+	margin: 100px auto;
+}
+
+.cLoginPane > .header{
+	color:gray;
+	text-align: center;
+	padding-top: 20px;
+}

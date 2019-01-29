@@ -27,3 +27,8 @@ Route::get('/', function () {
 	Log::info(' redirect welcome page ...');
     return view('welcome');
 });
+
+Route::get('/login', function () {
+	Log::info(' redirect welcome page ...');
+    return view('layouts.login');
+});
