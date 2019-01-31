@@ -28,13 +28,15 @@ Route::get('/login', function () {
 });
 
 Route::post('/login', function (Request $request) {
+	$isEmailError = false;
+	$isPasswordError = false;
+
 	if(isset($request)){
 		$email = $request->input('email');
-		echo $email;
 
 		$rules = array(
 		    'email'    => 'required|email', 
-		    'password' => 'required|alphaNum|min:3' 
+		    'password' => 'required|alphaNum|min:8' 
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -52,13 +54,17 @@ Route::post('/login', function (Request $request) {
 
 		    // !!! Giriş Yaparsa Kullanıcı Sayfasına Yönlendir---
 		    if($userdata['email'] == "admin@canguroo.com" &&
-		    $userdata['password'] == "admin" ) 
-		    	return Redirect::to('login')
-		    			->withErrors(array('loginMessage' => "Giriş başarılı"));
+		    $userdata['password'] == "adminadmin" ) 
+		    	return Redirect::to('/')
+		    			->withErrors(array('loginSuccessMessage' => "Giriş başarılı"));
 		    ///---------------------------------------------------
+		    $rules = array(
+		    'isEmailError'    => 'false', 
+		    'isPassword' => 'false' 
+			);
 
 		    return Redirect::to('login')
-		    		->withErrors(array('loginMessage' => "Hatalı Kullanıcı Adı veya Şifre"));
+		    		->withErrors(array('loginMessage' => "Mail Adresi veya Şifre Hatalı"));
 
 		}
 

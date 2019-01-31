@@ -9,6 +9,6 @@
 	?>
 	@endif
 @endisset
-<li class="nav-item {{ $_active }}">
-    <a class="nav-link active" href="{{$link['url']}}" >{{$link['text']}}</a>
+<li class="nav-item {{ $_active }} cNavbarItem">
+    <a class="nav-link active " href="{{$link['url']}}" >{{$link['text']}}</a>
 </li>

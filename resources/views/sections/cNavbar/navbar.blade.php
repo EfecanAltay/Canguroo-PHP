@@ -4,7 +4,7 @@
 <nav class="navbar navbar-expand cNavbar" style="width: 100%; height:140px;">
   <a class="navbar-brand" href="#">
     <h1>
-    Cangoroo.com
+    Canguroo.com
     </h1>
   </a>
   <div class="collapse navbar-collapse" >
