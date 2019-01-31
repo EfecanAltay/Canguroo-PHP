@@ -1,7 +1,8 @@
 <?php
   $emailHelpMessage = $errors->first('email');
-  $passwordHelpMessage = $errors->first('password');
-  $loginMessage = $errors->first('loginMessage');
+  $password1 = $errors->first('password1');
+  $password2 = $errors->first('password2');
+  $registerMessage = $errors->first('registerMessage');
 ?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -10,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Canguroo | Giriş </title>
+        <title>Canguroo | Kayıt</title>
         <link rel="stylesheet" type="text/css" href="semantic/out/semantic.min.css">
         <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -44,17 +45,17 @@
         </div>
       </nav>
       <div class="cLoginPane">
-        @if($loginMessage != "")    
+        @if($registerMessage != "")    
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <strong>Giriş Başarısız !</strong><br>{{$loginMessage}}
+              <strong>Kayıt Başarısız !</strong><br>{{$registerMessage}}
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>
             </div>
         @endif
         <div class="cLoginPaneBody">   
-          <h1 class="header">Giriş Yap</h1>
-            <form method="POST" action="/login">
+          <h1 class="header">Kayıt Yap</h1>
+            <form method="POST" action="/register">
               @csrf
               <div class="form-group">
                 <label for="exampleInputEmail1">Email Adres</label>
@@ -70,16 +71,27 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Şifre</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre" name="password" required>
-                @if($passwordHelpMessage != "")
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre" name="password1" required>
+                @if($password1 != "")
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <strong>Hatalı Şifre!</strong><br>{{ $passwordHelpMessage}}
+                  <strong>Hatalı Şifre!</strong><br>{{ $password1}}
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 @endif
-                <small class="form-text"><a href="/forgetPassword"> Şifremi Unuttum</a></small>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Şifreyi Tekrar Gir</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifreyi Tekrar Gir" name="password2" required>
+                @if($password2 != "")
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong>Hatalı Şifre!</strong><br>{{ $password2}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                @endif
               </div>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -87,10 +99,10 @@
               </div>
                <div class="form-row">
                 <div class="col">
-                  <button type="submit" class="btn btn-success">Giriş Yap</button>
+                  <button type="submit" class="btn btn-success">Kayıt Ol</button>
                 </div>
                 <div class="col">
-                  <a href="/register" class="btn  btn-warning">Üye Olmak İstiyorum</a>
+                  <a href="/login" class="btn  btn-warning">Zaten Üyeyim</a>
                 </div>
               </div>
             </form>

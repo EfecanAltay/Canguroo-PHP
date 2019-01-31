@@ -23,18 +23,19 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-	Cookie::forget('emailHelpMessage');
     return view('layouts.login');
 });
 
 Route::post('/login', function (Request $request) {
+	$isEmailError = false;
+	$isPasswordError = false;
+
 	if(isset($request)){
 		$email = $request->input('email');
-		echo $email;
 
 		$rules = array(
 		    'email'    => 'required|email', 
-		    'password' => 'required|alphaNum|min:3' 
+		    'password' => 'required|alphaNum|min:8' 
 		);
 
 		$validator = Validator::make(Input::all(), $rules);
@@ -52,17 +53,65 @@ Route::post('/login', function (Request $request) {
 
 		    // !!! Giriş Yaparsa Kullanıcı Sayfasına Yönlendir---
 		    if($userdata['email'] == "admin@canguroo.com" &&
-		    $userdata['password'] == "admin" ) 
-		    	return Redirect::to('login')
-		    			->withErrors(array('loginMessage' => "Giriş başarılı"));
+		    $userdata['password'] == "adminadmin" ) 
+		    	return Redirect::to('/')
+		    			->withErrors(array('loginSuccessMessage' => "Giriş başarılı"));
 		    ///---------------------------------------------------
+		    $rules = array(
+		    'isEmailError'    => 'false', 
+		    'isPassword' => 'false' 
+			);
 
 		    return Redirect::to('login')
-		    		->withErrors(array('loginMessage' => "Hatalı Kullanıcı Adı veya Şifre"));
+		    		->withErrors(array('loginMessage' => "Mail Adresi veya Şifre Hatalı"));
 
 		}
 
 	}else
 		return ;
-   
+});
+
+Route::get('/register', function () {
+    return view('layouts.register');
+});
+
+Route::post('/register', function (Request $request) {
+	$isEmailError = false;
+	$isPasswordError = false;
+
+	if(isset($request)){
+		$email = $request->input('email');
+		$pass = $request->input('password1');
+
+		$rules = array(
+		    'email'    => 'required|email', 
+		    'password1' => 'required|alphaNum|min:8',
+		  	'password2' => 'required|alphaNum|min:8|in:'.$pass
+		);
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails()) {
+		    return Redirect::to('register')
+		        ->withErrors($validator) 
+		        ->withInput(Input::except('password2'));
+		} else {
+		    
+		    $userdata = array(
+		        'email'     => Input::get('email'),
+		        'password'  => Input::get('password')
+		    );
+			
+			if($email === "admin@canguroo.com"){
+				return Redirect::to('/register')
+		    			->withErrors(array('registerMessage' => "Bu mail adresi Zaten Kayıtlı !"));
+			}
+
+		    return Redirect::to('/')
+		    		->withErrors(array('RegisterSuccessMessage' => "Kayıt başarılı"));
+		    ///---------------------------------------------------
+		}
+
+	}else
+		return ;
 });
