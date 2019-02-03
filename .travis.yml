@@ -5,8 +5,8 @@ php:
 
 before_script:
   - cp .env.travis .env
-  - phpenv config-add myphpconfig.ini
-  - pecl install mongodb-1.1.9
+  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - pecl install mongo
   - composer self-update
   - composer install --no-interaction 
 
