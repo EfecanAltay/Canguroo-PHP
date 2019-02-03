@@ -6,6 +6,7 @@ php:
 before_script:
   - cp .env.travis .env
   - phpenv config-add myphpconfig.ini
+  - sudo pecl install mongodb-1.1.9
   - composer self-update
   - composer install --no-interaction 
 
