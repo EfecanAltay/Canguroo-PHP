@@ -17,13 +17,10 @@ if (App::environment() === 'production') {
  //   URL::forceScheme('https'); //!!! not for heroku
 }
 
-Route::get('/', function () {
-	Log::info(' redirect welcome page ...');
-    return view('welcome');
-});
+Route::get('/', "homePageController@GetHomePage");
 
 Route::get('/login', "loginController@GetLogin");
 Route::post('/login', "loginController@PostLogin");
 
-Route::get('/register',"registerController@GetRegister";
+Route::get('/register',"registerController@GetRegister");
 Route::post('/register',"registerController@PostRegister");

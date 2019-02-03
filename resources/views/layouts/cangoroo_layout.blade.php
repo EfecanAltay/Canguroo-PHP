@@ -25,7 +25,7 @@
     </head>
     <body >
       <div style="width: 100%; height: 60px; background-color: black ; color: white;"> Adds</div>
-      @component('sections.cNavbar.navbar')
+      @component('sections.cNavbar.navbar', ['userData' => $userData])
       @endcomponent
       <div style="width: 100%; margin: 0px; padding: 0px; background-color: lightgray">
         @component('sections.cSidebar.sidebar')

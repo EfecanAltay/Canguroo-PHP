@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use  Illuminate\Support\Facades\Validator;
+use  Illuminate\Support\Facades\Input;
+use  Illuminate\Support\Facades\Redirect;
+use  Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
 
 class registerController extends Controller
@@ -12,7 +15,7 @@ class registerController extends Controller
     }
 
      /// POST Register -----------------------------
-    function PostRegister(){
+    function PostRegister(Request $request){
 		$isEmailError = false;
 		$isPasswordError = false;
 
@@ -43,13 +46,13 @@ class registerController extends Controller
 					return Redirect::to('/register')
 			    			->withErrors(array('registerMessage' => "Bu mail adresi Zaten Kayıtlı !"));
 				}
-
-			    return Redirect::to('/')
-			    		->withErrors(array('RegisterSuccessMessage' => "Kayıt başarılı"));
+				//userToken --------
+				Cookie::queue('userToken', "123456", 45000);
+			    return Redirect::to('/');
 			    ///---------------------------------------------------
 			}
 
 		}else
-			return ;
+			return "Dont req";
 	    }
 }

@@ -21,7 +21,7 @@
        </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-      @component( $navbarPath.'rightbuttonlist_navbar')
+      @component( $navbarPath.'rightbuttonlist_navbar' , ['userData' => $userData])
       @endcomponent
     </ul>
   </div>
@@ -48,7 +48,7 @@
        </li>
     </ul>
     <ul class="navbar-nav navbar-right">
-      @component($navbarPath.'rightbuttonlist_navbar')
+      @component($navbarPath.'rightbuttonlist_navbar' , ['userData' => $userData])
       @endcomponent
     </ul>
   </div>
