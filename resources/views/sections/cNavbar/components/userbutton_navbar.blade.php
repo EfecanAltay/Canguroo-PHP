@@ -4,8 +4,15 @@
 			<td colspan="2" align="center" ><h5><b>Hesap</b></h5></td>
 		</tr>
 		<tr style="" height="10" >
+			@if(!isset($links['userData']))
 			<td align="center" height="10" ><a class="active" href="{{$links['signin']}}" >Giriş</a></td>
 			<td align="center" height="10"  ><a class="" href="{{$links['signout']}}" >Kayıt</a></td>
+			@else
+			<?php
+				$userData = $links['userData'];
+			?>
+			<td align="center" height="10" ><a class="active" href="" >{{$userData['name']." ".$userData['surname'] }}</a></td>
+			@endif
 		</tr>
 	</table>
 </li>
