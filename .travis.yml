@@ -5,9 +5,11 @@ php:
 
 before_script:
   - cp .env.travis .env
-  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - composer self-update
-  - composer install --no-interaction 
+  - composer install --no-interaction
+  - mkdir ${PWD}/mongodb-linux-x86_64-${MONGODB}/data
+  - ${PWD}/mongodb-linux-x86_64-${MONGODB}/bin/mongod --dbpath ${PWD}/mongodb-linux-x86_64-${MONGODB}/data --logpath ${PWD}/mongodb-linux-x86_64-${MONGODB}/mongodb.log --fork
+
 
 script:
   - vendor/bin/phpunit
@@ -20,5 +22,25 @@ deploy:
   on:
     all_branches: true
 
-services:
-  - mongodb
+  env:
+  matrix:
+    - MONGODB=2.6.12
+    - MONGODB=3.0.15
+    - MONGODB=3.2.20
+    - MONGODB=3.4.16
+    - MONGODB=3.6.6
+    - MONGODB=4.0.0
+    - MONGODB=4.1.1
+
+matrix:
+  fast_finish: true
+
+install:
+  - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${MONGODB}.tgz
+  - tar xzf mongodb-linux-x86_64-${MONGODB}.tgz
+  - ${PWD}/mongodb-linux-x86_64-${MONGODB}/bin/mongod --version
+  - pip install Pillow
+  - python setup.py install
+
+after_script:
+  - pkill mongod
