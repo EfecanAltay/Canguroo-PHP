@@ -14,13 +14,16 @@ use Illuminate\Support\Facades\Input;
 
 if (App::environment() === 'production') {
 	Log::info('-> forcing Schema ...');
- //   URL::forceScheme('https'); //!!! not for heroku
+//  URL::forceScheme('https'); //!!! not for heroku
 }
-
 Route::get('/', "homePageController@GetHomePage");
 
-Route::get('/login', "loginController@GetLogin");
-Route::post('/login', "loginController@PostLogin");
+//Route::get('/login', "loginController@GetLogin");
+//Route::post('/login', "loginController@PostLogin");
 
-Route::get('/register',"registerController@GetRegister");
-Route::post('/register',"registerController@PostRegister");
+//Route::get('/register',"registerController@GetRegister");
+//Route::post('/register',"registerController@PostRegister");
+
+Auth::routes();
+
+Route::get('/profile', 'HomeController@index')->name('profile');

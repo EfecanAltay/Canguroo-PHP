@@ -12,6 +12,7 @@ class loginController extends Controller
     /// GET Login -----------------------------
     function GetLogin(){
     	    return view('layouts.login');
+    		//return view('auth.login');
     }
 
     /// POST Login------------------------------

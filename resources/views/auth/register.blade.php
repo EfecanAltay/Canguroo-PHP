@@ -1,8 +1,10 @@
 <?php
   $emailHelpMessage = $errors->first('email');
-  $password1 = $errors->first('password1');
+  $password1 = $errors->first('password');
+  $err_name = $errors->first('name');
   $password2 = $errors->first('password2');
   $registerMessage = $errors->first('registerMessage');
+  $navbarPath = 'sections.cNavbar.navbar2';
 ?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -11,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Canguroo | Kayıt</title>
+        <title>Canguroo | {{__('auth.register')}}</title>
         <link rel="stylesheet" type="text/css" href="semantic/out/semantic.min.css">
         <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -24,26 +26,8 @@
         <link href="{{ asset('css/login_page.css') }}" rel="stylesheet">
     </head>
     <body style="background-color: #e1e2e1">
-      <?php
-        $navbarPath = 'sections.cNavbar.';
-      ?>
-      <nav class="navbar navbar-expand cNavbar" style="width: 100%; height:70px;" >
-        <a class="navbar-brand cNavbarItem" href="/">
-          <h1 >
-          Canguroo.com
-          </h1>
-        </a>
-        <div class="collapse navbar-collapse" >
-          <ul class="navbar-nav navbar-collapse">
-              <li class="nav-item navbar-collapse">
-                Hayalindeki ürünün en uygun fiyatını seçmeye adım at
-             </li>
-          </ul>
-          <ul class="navbar-nav navbar-right">
-         
-          </ul>
-        </div>
-      </nav>
+      @component($navbarPath)
+      @endcomponent
       <div class="cLoginPane">
         @if($registerMessage != "")    
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -54,12 +38,24 @@
             </div>
         @endif
         <div class="cLoginPaneBody">   
-          <h1 class="header">Kayıt Yap</h1>
+          <h1 class="header">{{__('auth.register')}}</h1>
             <form method="POST" action="/register">
               @csrf
+               <div class="form-group">
+                <label for="ex ampleInputEmail1">{{__('auth.name')}}</label>
+                <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{__('auth.name')}}" name="name" required>
+                @if($emailHelpMessage != "")
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong>Hatalı Mail !</strong><br>{{ $err_name }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                @endif
+              </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Email Adres</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email" required>
+                <label for="ex ampleInputEmail1">{{__('auth.email')}}</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{__('auth.email')}}" name="email" required>
                 @if($emailHelpMessage != "")
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                   <strong>Hatalı Mail !</strong><br>{{ $emailHelpMessage}}
@@ -70,8 +66,8 @@
                 @endif
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Şifre</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre" name="password1" required>
+                <label for="exampleInputPassword1">{{__('auth.pass')}}</label>
+                <input type="password" class="form-control" placeholder="{{__('auth.pass')}}" name="password" required>
                 @if($password1 != "")
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                   <strong>Hatalı Şifre!</strong><br>{{ $password1}}
@@ -82,8 +78,8 @@
                 @endif
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Şifreyi Tekrar Gir</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifreyi Tekrar Gir" name="password2" required>
+                <label for="exampleInputPassword1">{{__('auth.repass')}}</label>
+                <input type="password" class="form-control" placeholder="{{__('auth.repass')}}" name="password_confirmation" required>
                 @if($password2 != "")
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                   <strong>Hatalı Şifre!</strong><br>{{ $password2}}
@@ -95,14 +91,14 @@
               </div>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Beni Hatırla</label>
+                <label class="form-check-label" for="exampleCheck1">{{__('auth.rememberMe')}}</label>
               </div>
                <div class="form-row">
                 <div class="col">
-                  <button type="submit" class="btn btn-success">Kayıt Ol</button>
+                  <button type="submit" class="btn btn-success">{{__('auth.register')}}</button>
                 </div>
                 <div class="col">
-                  <a href="/login" class="btn  btn-warning">Zaten Üyeyim</a>
+                  <a href="/login" class="btn  btn-warning">{{__('auth.iAlreadyAMember')}}</a>
                 </div>
               </div>
             </form>
