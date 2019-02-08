@@ -16,7 +16,11 @@ if (App::environment() === 'production') {
 	Log::info('-> forcing Schema ...');
 //  URL::forceScheme('https'); //!!! not for heroku
 }
-Route::get('/', "homePageController@GetHomePage");
+Auth::routes();
+
+Route::get('/', "HomeController@index");
+Route::get('/logout', "LogoutController@index");
+
 
 //Route::get('/login', "loginController@GetLogin");
 //Route::post('/login', "loginController@PostLogin");
@@ -24,6 +28,4 @@ Route::get('/', "homePageController@GetHomePage");
 //Route::get('/register',"registerController@GetRegister");
 //Route::post('/register',"registerController@PostRegister");
 
-Auth::routes();
-
-Route::get('/profile', 'HomeController@index')->name('profile');
+//Route::get('/profile', 'HomeController@index' )->name('profile');

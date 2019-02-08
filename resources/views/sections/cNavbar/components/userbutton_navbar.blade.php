@@ -11,7 +11,7 @@
 			<?php
 				$userData = $links['userData'];
 			?>
-			<td align="center" height="10" ><a class="active" href="" >{{$userData['name']." ".$userData['surname'] }}</a></td>
+			<td align="center" height="10" ><a class="active" href="{{ route('logout') }}" >{{$userData['name']}}</a></td>
 			@endif
 		</tr>
 	</table>

@@ -24,7 +24,6 @@ class Authenticate extends Middleware
             {
                 //
             }
-            echo 'hi';
         }
     }
 }

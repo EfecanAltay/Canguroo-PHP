@@ -28,15 +28,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function username()
-    {
-        return 'username';
-    }
+    public function authenticate(Request $req){
+        $credential = $request->only('email','passaword');
 
-
-    protected function guard()
-    {
-        return Auth::guard('guard-name');
+        if(Auth::attempt($credential)){
+            
+            return redirect()->intended('/');
+        }
     }
     
 }

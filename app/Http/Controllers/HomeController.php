@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
+        //$this->middleware('guest');
     }
 
     /**
@@ -23,8 +25,13 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['employee', 'manager']);
-        return view('/');
+        //$request->user()->authorizeRoles(['employee', 'manager']);
+        $userData = null ;
+        if(Auth::check()){
+            $user = Auth::user();
+            $userData = array('name' => $user->name,'email' => $user->email ,'id' => $user->id );   
+        }
+        return view('welcome',['userData' => $userData]);
     }
 
   /*

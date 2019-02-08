@@ -37,7 +37,7 @@
         @endif
         <div class="cLoginPaneBody">   
           <h1 class="header">{{ __('auth.login') }}</h1>
-            <form method="POST" action="/login">
+            <form method="POST" action="{{ route('login') }}">
               @csrf
               <div class="form-group">
                 <label for="exampleInputEmail1">{{ __('auth.email') }}</label>
