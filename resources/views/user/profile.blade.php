@@ -18,28 +18,27 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{ asset('js/app.js') }}"></script>
         <link rel="script" href="{{ asset('bootstrap/js/bootstrap.js') }}">
-
     </head>
-    <body >
-      <div style="width: 100%; height: 60px; background-color: black ; color: white;"> Adds</div>
-      @component('sections.cNavbar.navbar', ['userData' => $userData])
+    <body style="" >
+      <div style="  height: 60px; background-color: black ; color: white;"> Adds</div>
+      @component('sections.cNavbar.navbar')
       @endcomponent
-      <div style="background-color: lightgray;">
-        @component('sections.cSidebar.sidebar')
-        @endcomponent
-        <div style="margin:0px auto; padding:0px; height: 100%; width:100%; background-color: lightgray;">
-            @component('sections.cSidebar.sidebarItemContentList')
-            @endcomponent
-            @component('sections.carousel')
-            @endcomponent
-            <!--
-            @component('sections.breadcrumb')
-            @endcomponent
-            -->
-            <div  class="cContent" style="">
-            @component('sections.content')
-            @endcomponent
-            </div>
+      @component('sections.breadcrumb')
+      @endcomponent
+      <div class="container-fluid" style="padding:20px; background-color: lightgray;">
+        <div class="row" style="min-width:1000px;">
+          <div  class="col-3" style=" padding: 0px; padding-left: 10px; ">  
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#">Sepetim</a></li>
+              <li class="list-group-item"><a href="#">Kuponlarım</a></li>
+              <li class="list-group-item"><a href="#">Siparişlerim</a></li>
+              <li class="list-group-item active">Setting</li>
+            </ul>
+          </div>
+          <div class="col-9" style="padding:50px;">  
+              @component('user.info')
+              @endcomponent
+          </div>
         </div>
       </div>
       @component('sections.footer')

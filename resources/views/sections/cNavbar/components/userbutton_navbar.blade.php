@@ -11,8 +11,16 @@
 			<?php
 				$userData = $links['userData'];
 			?>
-			<td align="center" height="10" ><a class="active" href="{{ route('logout') }}" >{{$userData['name']}}</a></td>
+			<td align="center" height="10" class="dropdown" >
+				<a class="active" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{$userData['name']." ".$userData['surname'] }} </a>
+				<div class="dropdown-menu dropdown-menu-right">
+				    <a class="dropdown-item" href="{{route('profile')}}" >{{__('user.profile')}}</a>
+				    <a class="dropdown-item" href="#">Another action</a>
+				    <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+			 	</div>
+			</td>
 			@endif
 		</tr>
 	</table>
+
 </li>

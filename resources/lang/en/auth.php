@@ -16,5 +16,6 @@ return [
     'wrongEmail' => 'Wrong Email Adress',
     'wrongEmailDes' => 'It is Not Mail Adress',
     'name' => 'Name',
-    'surname' => 'Surname'
+    'surname' => 'Surname',
+    'acceptRequirement' => 'Accept Requirement'
 ];

@@ -56,6 +56,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:6', 'confirmed']
         ]);
     }
+
+    //Use Surname !!! :))
     /**
      * Create a new user instance after a valid registration.
      *
@@ -66,6 +68,7 @@ class RegisterController extends Controller
     {
            $user = User::create([
               'name' => $data['name'],
+              'surname' => $data['surname'],
               'email'    => $data['email'],
               'password' => bcrypt($data['password'])
             ]);

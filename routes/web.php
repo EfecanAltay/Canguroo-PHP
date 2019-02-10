@@ -18,9 +18,9 @@ if (App::environment() === 'production') {
 }
 Auth::routes();
 
-Route::get('/', "HomeController@index");
+Route::get('/', "HomeController@index")->name('home');
 Route::get('/logout', "LogoutController@index");
-
+Route::get('user/profile', "UserController@index")->name('profile');
 
 //Route::get('/login', "loginController@GetLogin");
 //Route::post('/login', "loginController@PostLogin");

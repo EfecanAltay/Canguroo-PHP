@@ -29,7 +29,11 @@ class HomeController extends Controller
         $userData = null ;
         if(Auth::check()){
             $user = Auth::user();
-            $userData = array('name' => $user->name,'email' => $user->email ,'id' => $user->id );   
+            $userData = array(
+                'name' => $user->name,
+                'surname' => $user->surname,
+                'email' => $user->email,
+                'id' => $user->id );   
         }
         return view('welcome',['userData' => $userData]);
     }

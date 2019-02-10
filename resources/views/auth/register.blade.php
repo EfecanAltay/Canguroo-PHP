@@ -2,6 +2,7 @@
   $emailHelpMessage = $errors->first('email');
   $password1 = $errors->first('password');
   $err_name = $errors->first('name');
+  $err_surname = $errors->first('surname');
   $password2 = $errors->first('password2');
   $registerMessage = $errors->first('registerMessage');
   $navbarPath = 'sections.cNavbar.navbar2';
@@ -41,10 +42,22 @@
           <h1 class="header">{{__('auth.register')}}</h1>
             <form method="POST" action="/register">
               @csrf
-               <div class="form-group">
-                <label for="ex ampleInputEmail1">{{__('auth.name')}}</label>
-                <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{__('auth.name')}}" name="name" required>
+              <div class="form-group">
+                <label for="ex ampleInputEmail1">{{__('auth.email')}}</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{__('auth.email')}}" name="email" required>
                 @if($emailHelpMessage != "")
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong>Hatalı Mail !</strong><br>{{ $emailHelpMessage}}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                @endif
+              </div>
+              <div class="form-group">
+                <label for="ex ampleInputEmail1">{{__('auth.name')}}</label>
+                <input type="name" class="form-control" aria-describedby="emailHelp" placeholder="{{__('auth.name')}}" name="name" required>
+                @if($err_name != "")
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                   <strong>Hatalı Mail !</strong><br>{{ $err_name }}
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -54,11 +67,11 @@
                 @endif
               </div>
               <div class="form-group">
-                <label for="ex ampleInputEmail1">{{__('auth.email')}}</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{__('auth.email')}}" name="email" required>
-                @if($emailHelpMessage != "")
+                <label for="ex ampleInputEmail1">{{__('auth.surname')}}</label>
+                <input type="surname" class="form-control" aria-describedby="emailHelp" placeholder="{{__('auth.surname')}}" name="surname" required>
+                @if($err_surname != "")
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  <strong>Hatalı Mail !</strong><br>{{ $emailHelpMessage}}
+                  <strong>Hatalı Mail !</strong><br>{{ $err_surname}}
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
@@ -91,7 +104,7 @@
               </div>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">{{__('auth.rememberMe')}}</label>
+                <label class="form-check-label" for="exampleCheck1">{{__('auth.acceptRequirement')}}</label>
               </div>
                <div class="form-row">
                 <div class="col">
