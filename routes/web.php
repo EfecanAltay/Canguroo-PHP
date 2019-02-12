@@ -22,6 +22,12 @@ Route::get('/', "HomeController@index")->name('home');
 Route::get('/logout', "LogoutController@index");
 Route::get('user/profile', "UserController@index")->name('profile');
 
+Route::get('user/profile/card', "UserController@card")->name('card');
+Route::get('user/profile/coupon', "UserController@coupons")->name('coupons');
+Route::get('user/profile/orders', "UserController@orders")->name('orders');
+Route::get('user/profile/adress', "UserController@adress")->name('adress');
+Route::get('user/profile/settings', "UserController@settings")->name('settings');
+
 //Route::get('/login', "loginController@GetLogin");
 //Route::post('/login', "loginController@PostLogin");
 
