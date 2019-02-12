@@ -2,17 +2,17 @@
   <div class="form-row">
     <div class="form-group col-md-12">
       <label for="inputEmail4">Email</label>
-      <input type="text" readonly class="form-control" id="inputEmail4" value="email@email.com">
+      <input type="text" readonly class="form-control" id="inputEmail4" value="{{$userData['email']}}">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Name</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="Name">
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Name" value="{{$userData['name']}}">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Surname</label>
-      <input type="text" class="form-control" id="inputPassword4" placeholder="Surname">
+      <input type="text" class="form-control" id="inputPassword4" placeholder="{{$userData['surname']}}">
     </div>
   </div>
     <div class="form-row">

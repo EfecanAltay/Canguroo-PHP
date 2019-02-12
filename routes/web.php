@@ -20,8 +20,9 @@ Auth::routes();
 
 Route::get('/', "HomeController@index")->name('home');
 Route::get('/logout', "LogoutController@index");
-Route::get('user/profile', "UserController@index")->name('profile');
 
+Route::get('user',"UserController@index")->name('card');
+Route::get('user/profile', "UserController@index")->name('profile');
 Route::get('user/profile/card', "UserController@card")->name('card');
 Route::get('user/profile/coupon', "UserController@coupons")->name('coupons');
 Route::get('user/profile/orders', "UserController@orders")->name('orders');

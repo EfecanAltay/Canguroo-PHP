@@ -31,7 +31,7 @@
     </head>
     <body style="" >
       <div style="  height: 60px; background-color: black ; color: white;"> Adds</div>
-      @component('sections.cNavbar.navbar')
+      @component('sections.cNavbar.navbar',['userData' => $userData])
       @endcomponent
       @component('sections.breadcrumb')
       @endcomponent
@@ -49,7 +49,7 @@
                     </ul>
                 </div>
                 <div class="col-9" style="padding:50px;"> 
-              @component('user.profile.card')
+              @component('user.profile.card',['userData' => $userData])
               @endcomponent
                       @break
                   @case(1)
@@ -61,7 +61,7 @@
                     </ul>
                 </div>
                 <div class="col-9" style="padding:50px;"> 
-              @component('user.profile.coupons')
+              @component('user.profile.coupons',['userData' => $userData])
               @endcomponent
                       @break
                   @case(2)
@@ -73,7 +73,7 @@
                      </ul>
                 </div>
                 <div class="col-9" style="padding:50px;"> 
-              @component('user.profile.orders')
+              @component('user.profile.orders',['userData' => $userData])
               @endcomponent
                       @break
                   @case(3)
@@ -84,8 +84,9 @@
                         <li class="list-group-item"><a href="{{route('settings')}}">Setting</a></li>
                     </ul>
                 </div>
-                <div class="col-9" style="padding:50px;"> 
-              @component('user.profile.adress')
+                <div class="col-9" style="padding:50px;">
+                <h1>Adress</h1>
+              @component('user.profile.adress',['userData' => $userData])
               @endcomponent
                       @break
                   @case(4)
@@ -96,8 +97,9 @@
                         <li class="list-group-item active"><a href="{{route('settings')}}">Setting</a></li>
                     </ul>
                 </div>
-                <div class="col-9" style="padding:50px;"> 
-              @component('user.profile.settings')
+                <div class="col-9" style="padding:50px;">
+                <h1>Settings</h1>
+              @component('user.profile.settings',['userData' => $userData])
               @endcomponent
                       @break
                   @default
@@ -109,7 +111,7 @@
                     </ul>
                 </div>
                 <div class="col-9" style="padding:50px;"> 
-              @component('user.profile.adress')
+              @component('user.profile.adress',['userData' => $userData])
               @endcomponent
               @break    
             @endswitch
