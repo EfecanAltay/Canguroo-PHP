@@ -98,6 +98,16 @@
                     </ul>
                 </div>
                 <div class="col-9" style="padding:50px;">
+                  @isset($updated)
+                    @if($updated == 1)
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>Updated Success!</strong> your info is update
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    @endif
+                  @endisset
                 <h1>Settings</h1>
               @component('user.profile.settings',['userData' => $userData])
               @endcomponent

@@ -22,13 +22,15 @@ class UserController extends Controller
                 'name' => $user->name,
                 'surname' => $user->surname,
                 'email' => $user->email,
+                'gender' => $user->gender,
+                'birthday' => $user->birthday,
+                'phone' => $user->phone,
                 'id' => $user->id );
             $returningView->with('userData' , $userData); 
             return $returningView;
         }
         return redirect('/');
     }
-
     public function index(Request $request)
     {
         return  $this->ControlAuth(view('user.profile',["i"=> 0 ]));
@@ -51,7 +53,16 @@ class UserController extends Controller
     }
     public function settings(Request $request)
     {
-        return $this->ControlAuth(view('user.profile',["i"=> 4 ]));
+        return $this->ControlAuth(view('user.profile',["i"=> 4 ,"updated"=> 0]));
     }
-
+    public function updateUserData(Request $request){
+        $user = Auth::user();
+        $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
+        $user->phone = $request->input('phone');
+        $user->birthday = $request->input('birthday');
+        $user->gender = $request->input('gender');
+        $user->save();
+        return $this->ControlAuth(view('user.profile',["i"=> 4 ,"updated"=> 1]));
+    }
 }

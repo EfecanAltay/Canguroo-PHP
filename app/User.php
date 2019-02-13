@@ -18,7 +18,7 @@ class User extends Authenticatable
 
     protected $connection = 'mongodb';
 
-    protected $fillable = ['name','surname','email', 'password']; 
+    protected $fillable = ['name','surname','email', 'password','phone','birthday','gender']; 
 
     public function roles()
 	{
@@ -53,6 +53,4 @@ class User extends Authenticatable
 	{
 	  return null !== $this->roles()->where('name', $role)->first();
 	}
-
-
 }
