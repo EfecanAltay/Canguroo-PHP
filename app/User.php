@@ -12,6 +12,8 @@ use Jenssegers\Mongodb\Auth\User as Authenticatable;
 
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
+use App\User;
+
 class User extends Authenticatable
 {
 	use AuthenticableTrait;

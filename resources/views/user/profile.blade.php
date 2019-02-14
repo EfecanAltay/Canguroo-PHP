@@ -39,8 +39,8 @@
         <div class="row" style="min-width:1000px;">
           <div  class="col-3" style=" padding: 0px; padding-left: 10px; ">  
             <ul class="list-group">
-              @switch($i)
-                  @case(0)
+              @switch($tag)
+                  @case('card')
                         <li class="list-group-item active"><a href="{{route('card')}}">My Card</a></li>
                         <li class="list-group-item"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item"><a href="{{route('orders')}}">Siparişlerim</a></li>
@@ -52,7 +52,7 @@
               @component('user.profile.card',['userData' => $userData])
               @endcomponent
                       @break
-                  @case(1)
+                  @case('coupons')
                         <li class="list-group-item"><a href="{{route('card')}}">Sepetim</a></li>
                         <li class="list-group-item active"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item"><a href="{{route('orders')}}">Siparişlerim</a></li>
@@ -64,7 +64,7 @@
               @component('user.profile.coupons',['userData' => $userData])
               @endcomponent
                       @break
-                  @case(2)
+                  @case('orders')
                         <li class="list-group-item"><a href="{{route('card')}}">Sepetim</a></li>
                         <li class="list-group-item"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item active"><a href="{{route('orders')}}">Siparişlerim</a></li>
@@ -76,7 +76,7 @@
               @component('user.profile.orders',['userData' => $userData])
               @endcomponent
                       @break
-                  @case(3)
+                  @case('adresses')
                         <li class="list-group-item"><a href="{{route('card')}}">Sepetim</a></li>
                         <li class="list-group-item"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item"><a href="{{route('orders')}}">Siparişlerim</a></li>
@@ -84,12 +84,10 @@
                         <li class="list-group-item"><a href="{{route('settings')}}">Setting</a></li>
                     </ul>
                 </div>
-                <div class="col-9" style="padding:50px;">
-                <h1>Adress</h1>
-              @component('user.profile.adress',['userData' => $userData])
+              @component('user.profile.adress',['userData' => $userData ,"address" => "Add" , "adressList" => $adressList])
               @endcomponent
                       @break
-                  @case(4)
+                  @case('settings')
                         <li class="list-group-item"><a href="{{route('card')}}">Sepetim</a></li>
                         <li class="list-group-item"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item"><a href="{{route('orders')}}">Siparişlerim</a></li>
