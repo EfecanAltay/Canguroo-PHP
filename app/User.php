@@ -55,4 +55,8 @@ class User extends Authenticatable
 	{
 	  return null !== $this->roles()->where('name', $role)->first();
 	}
+
+	public function adresses(){
+		return $this->embedsMany(Adress::class);
+	}
 }

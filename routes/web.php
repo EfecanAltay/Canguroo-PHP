@@ -30,7 +30,14 @@ Route::get('user/profile/adress', "UserController@adress")->name('adress');
 
 Route::get('user/profile/settings', "UserController@settings")->name('settings');
 Route::post('user/profile/settings', "UserController@updateUserData")->name('updateUserData');
-Route::post('user/profile/adress', "UserController@addAdress")->name('addAdress');
+
+Route::get('user/profile/adress/add', "AdressController@addAdress")->name('addAdress');
+Route::post('user/profile/adress/add', "AdressController@addAdress")->name('addAdress');
+
+Route::post('user/profile/adress/get', "AdressController@getAdress")->name('getAdress');
+
+Route::post('user/profile/adress/delete', "AdressController@deleteAdress")->name('deleteAdress');
+Route::post('user/profile/adress/update', "AdressController@updateAdress")->name('updateAdress');
 
 //Route::get('/login', "loginController@GetLogin");
 //Route::post('/login', "loginController@PostLogin");

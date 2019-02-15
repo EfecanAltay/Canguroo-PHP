@@ -15,6 +15,8 @@
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/cCarousel.css') }}" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{ asset('js/app.js') }}"></script>
         <link rel="script" href="{{ asset('bootstrap/js/bootstrap.js') }}">
@@ -84,7 +86,13 @@
                         <li class="list-group-item"><a href="{{route('settings')}}">Setting</a></li>
                     </ul>
                 </div>
-              @component('user.profile.adress',['userData' => $userData ,"address" => "Add" , "adressList" => $adressList])
+              @component('user.profile.adress',
+                  [
+                    'userData' => $userData,
+                    "address" => "Add",
+                    "adressTag" => $adressTag,
+                    "adressList" => $adressList
+                  ])                  
               @endcomponent
                       @break
                   @case('settings')

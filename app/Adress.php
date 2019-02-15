@@ -6,15 +6,9 @@ namespace App;
 
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-class Adresses extends Eloquent
+class Adress extends Eloquent
 {
 	protected $connection = 'mongodb';
-	
-	public function Adreses()
-	{
-	  return $this->belongsToMany(User::class);
-	}
-	public function AddAdress(){
+	protected $fillable = ['title','adress','post_code'];
 
-	}
 }

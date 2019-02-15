@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Adresses;
+use App\Adress;
+
 class UserController extends Controller
 {
      /**
@@ -50,13 +51,17 @@ class UserController extends Controller
     }
     public function adress(Request $request)
     {
-        $adress = array('title' => "Home" , 'adress' => 'vıdı vıdı mah. Akşemsettin cad. no 10 kat 2', 'postcode' => "34882");
-        $adress2 = array('title' => "Office" , 'adress' => 'vıdı vıdı st. Akşemsettin cad. no 10 kat 2', 'postcode' => "34882");
-        $adress3 = array('title' => "MyDear's home" , 'adress' => 'vıdı vıdı mah. Akşemsettin cad. no 10 kat 2', 'postcode' => "34882");
-        $adress4 = array('title' => "MyDear's home" , 'adress' => 'vıdı vıdı mah. Akşemsettin cad. no 10 kat 2', 'postcode' => "34882" ,"");
-        $adressList = array();
+        $user = Auth::user();
+        $adressList = $user->adresses()->get();
+        
+        //$adressList = array();
         //array_push($adressList, $adress, $adress2 , $adress3 , $adress4);
-        return $this->ControlAuth(view('user.profile',["tag"=> "adresses","adressList" => $adressList ]));
+        return $this->ControlAuth(view('user.profile',
+            [
+                "tag" => "adresses",
+                "adressTag" => "getAdresses",
+                "adressList" => $adressList 
+            ]));
     }
     public function settings(Request $request)
     {
@@ -71,13 +76,5 @@ class UserController extends Controller
         $user->gender = $request->input('gender');
         $user->save();
         return $this->ControlAuth(view('user.profile',["tag"=> "settings" ,"updated"=> 1]));
-    }
-    public function addAdress(Request $request){
-      $user = Auth::user();
-      $adress = new Adresses();
-      $adress->AddAdress();
-      $adress->save();
-      $adress->user()->attach($user);
-      return redirect('user/profile/adress');
     }
 }
