@@ -1,6 +1,3 @@
-  <?php
-  
-?>
 <div class="col-9" style="padding:50px;">
 <div id="accordionExample" >
   @switch($adressTag)

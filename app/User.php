@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
@@ -9,10 +8,10 @@ use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 //use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 use Jenssegers\Mongodb\Auth\User as Authenticatable;
 //use Illuminate\Contracts\Auth\Authenticatable ;
-
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
 use App\User;
+use App\Product;
 
 class User extends Authenticatable
 {
@@ -26,7 +25,6 @@ class User extends Authenticatable
 	{
 	  return $this->belongsToMany(Role::class);
 	}
- 	
  	/**
 	* @param string|array $roles
 	*/
@@ -58,5 +56,9 @@ class User extends Authenticatable
 
 	public function adresses(){
 		return $this->embedsMany(Adress::class);
+	}
+	public function card()
+	{
+	  return $this->belongsToMany(Product::class);
 	}
 }

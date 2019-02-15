@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Adress;
+use App\Product;
+use App\Store;
+
 
 class UserController extends Controller
 {
@@ -35,11 +38,28 @@ class UserController extends Controller
     }
     public function index(Request $request)
     {
-        return  $this->ControlAuth(view('user.profile',["tag"=> "card" ]));
+        //$store = new Store(["name" => "my shop store"]);
+        //$store->save();
+        $product = new Product(
+            [
+                "title" => "LG Android",
+                "subtitle" =>"lg android telefon muhteşem fiyatla",
+                "cost" => "2.000"
+            ]);
+        //$product->save();
+
+        //$storeclass = Store::where("name","my shop store")->first();
+        //$storeclass->products()->save($product);
+        return $this->card($request);
     }
     public function card(Request $request)
     {
-        return $this->ControlAuth(view('user.profile',["tag"=> "card" ]));
+        //$user = Auth::user();
+        //$productList = $user->card();
+        $product = new Product(["title"=>"asd","desc"=>"abc abc"]);
+        $productList = array($product);
+
+        return  $this->ControlAuth(view('user.profile',["tag"=> "card" , "productList" => $productList]));
     }
     public function coupons(Request $request)
     {

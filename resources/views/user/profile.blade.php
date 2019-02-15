@@ -51,7 +51,11 @@
                     </ul>
                 </div>
                 <div class="col-9" style="padding:50px;"> 
-              @component('user.profile.card',['userData' => $userData])
+              @component('user.profile.card',
+              [
+                'userData' => $userData,
+                'productList' => $productList
+              ])
               @endcomponent
                       @break
                   @case('coupons')
