@@ -37,7 +37,7 @@
             @endcomponent
             -->
             <div  class="cContent" style="">
-            @component('sections.content')
+            @component('sections.content',["products" => $products])
             @endcomponent
             </div>
         </div>

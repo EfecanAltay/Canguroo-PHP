@@ -8,7 +8,7 @@
     <div class="form-row">
       <div class="form-group col-md-12">
         <label for="inputEmail4">Title</label>
-        <input type="text" class="form-control" name="title" placeholder="Title">
+        <input type="text" class="form-control" name="title" placeholder="Ev adresi / İş adresi">
       </div>
     </div>
     <div class="form-row">

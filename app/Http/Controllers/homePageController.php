@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class homePageController extends Controller
 {
-    //
+    
     function GetHomePage(){
       	//Control UserLogin Cookie ;
     	//Cookie::queue('online_payment_id', "1", 15);

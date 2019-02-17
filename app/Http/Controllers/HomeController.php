@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Product;
+
 class HomeController extends Controller
 {
     /**
@@ -26,6 +28,8 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         //$request->user()->authorizeRoles(['employee', 'manager']);
+       
+
         $userData = null ;
         if(Auth::check()){
             $user = Auth::user();
@@ -35,7 +39,11 @@ class HomeController extends Controller
                 'email' => $user->email,
                 'id' => $user->id );   
         }
-        return view('welcome',['userData' => $userData]);
+        //Ürünler listesi
+        $productList = Product::all();
+
+
+        return view('welcome',['userData' => $userData , "products" => $productList]);
     }
 
   /*
