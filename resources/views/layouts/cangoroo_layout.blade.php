@@ -20,7 +20,7 @@
         <link rel="script" href="{{ asset('bootstrap/js/bootstrap.js') }}">
 
     </head>
-    <body >
+    <body>
       <div style="width: 100%; height: 60px; background-color: black ; color: white;"> Adds</div>
       @component('sections.cNavbar.navbar', ['userData' => $userData])
       @endcomponent

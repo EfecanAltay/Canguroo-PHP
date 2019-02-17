@@ -1,4 +1,4 @@
-<a href="#" class="card cCardItem" style="text-decoration: none;" >
+<a href="{{ route('getProductDetail' , $product->id )}}" class="card cCardItem" style="text-decoration: none;" >
     <img class="card-img-top" src="imgs/items/item.jpg" alt="Card image cap">
     <div class="card-body" style="padding-top:0px;  margin: 0px; ">
         <h5 class="">{{ $product->title }}</h5>

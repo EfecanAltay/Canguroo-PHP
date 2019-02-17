@@ -39,10 +39,8 @@ Route::post('user/profile/adress/get', "AdressController@getAdress")->name('getA
 Route::post('user/profile/adress/delete', "AdressController@deleteAdress")->name('deleteAdress');
 Route::post('user/profile/adress/update', "AdressController@updateAdress")->name('updateAdress');
 
-//Route::get('/login', "loginController@GetLogin");
-//Route::post('/login', "loginController@PostLogin");
+//Products
 
-//Route::get('/register',"registerController@GetRegister");
-//Route::post('/register',"registerController@PostRegister");
+Route::get('products/{product_id}/detail/', "ProductController@getProductDetail")->name('getProductDetail');
 
-//Route::get('/profile', 'HomeController@index' )->name('profile');
+
