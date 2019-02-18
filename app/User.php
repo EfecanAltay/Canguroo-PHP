@@ -57,8 +57,9 @@ class User extends Authenticatable
 	public function adresses(){
 		return $this->embedsMany(Adress::class);
 	}
+	
 	public function card()
 	{
-	  return $this->belongsToMany(Product::class);
+	  return $this->embedsOne(Card::class);
 	}
 }

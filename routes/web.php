@@ -43,4 +43,11 @@ Route::post('user/profile/adress/update', "AdressController@updateAdress")->name
 
 Route::get('products/{product_id}/detail/', "ProductController@getProductDetail")->name('getProductDetail');
 
+//->Take Product
+Route::get('products/{product_id}/takeProduct/', "ProductController@takeProduct");
+Route::post('products/{product_id}/takeProduct/', "ProductController@takeProduct" )->name('takeProduct');
+//->AddToCard / Sepete Ekle
+//->FasyPay / Hızlı Al
+
+
 

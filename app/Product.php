@@ -4,19 +4,10 @@ namespace App;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
 use App\Store;
+use App\Package;
 
 class Product extends Eloquent
 {
 	protected $connection = 'mongodb';
-    protected $fillable = ['title','subtitle','cost','store_id'];
-
-    public function detail(){
-    	return $this->embedsOne(ProductDetail::class);
-    }
-}
-
-class ProductDetail extends Eloquent
-{
-	protected $connection = 'mongodb';
-    protected $fillable = ['brand','model','detailText'];
+    protected $fillable = ['title','subtitle','cost','store_id','props'];
 }

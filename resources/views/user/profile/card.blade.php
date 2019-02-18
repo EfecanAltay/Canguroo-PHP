@@ -1,2 +1,2 @@
-@component('user.profile.card.productList' , ["productList" => $productList])
+@component('user.profile.card.productList' , ["card" => $card])
 @endcomponent

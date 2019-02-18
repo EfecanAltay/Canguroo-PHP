@@ -54,7 +54,7 @@
               @component('user.profile.card',
               [
                 'userData' => $userData,
-                'productList' => $productList
+                'card' => $card
               ])
               @endcomponent
                       @break

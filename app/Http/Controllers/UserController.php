@@ -54,12 +54,10 @@ class UserController extends Controller
     }
     public function card(Request $request)
     {
-        //$user = Auth::user();
-        //$productList = $user->card();
-        $product = new Product(["title"=>"asd","desc"=>"abc abc"]);
-        $productList = array($product);
-
-        return  $this->ControlAuth(view('user.profile',["tag"=> "card" , "productList" => $productList]));
+        $user = Auth::user();
+        $card = $user->card()->get();
+        
+        return  $this->ControlAuth(view('user.profile',[ "tag"=> "card" , "card" => $card ]));
     }
     public function coupons(Request $request)
     {
