@@ -40,15 +40,26 @@
       <h1>{{$product->title}}</h1>
       </br>
       <h3>cost : {{$product->cost}}₺</h3>
-      
+      </br>
+      <?php
+      $onCard = false ;
+      ?>
+      @component('product.productDetailCardList',["userData"=>$userData ,"product"=>$product])
+      @endcomponent
+      </br>
       <form method="POST" action="{{route('takeProduct',['product_id'=>$product->id]) }}" >
         @csrf
         <label>Color :</label>
         <input type="text" name="color" required/> </br>
         <label>Amound :</label>
         <input type="number" name="amount" required/> </br>
-        <button type="submit" name="take" value="addToCard" class="btn btn-primary">Sepete Ekle</button>
-        <button type="submit" name="take" value="fastPay" class="btn btn-success">Hemen Al</button>
+        @if($onCard)
+          <button type="submit" name="take" value="addToCard" class="btn btn-primary">Bunuda Sepete Ekle</button>
+          <button type="submit" name="take" value="fastPay" class="btn btn-success">Hemen Al</button>
+        @else
+          <button type="submit" name="take" value="addToCard" class="btn btn-primary">Sepete Ekle</button>
+          <button type="submit" name="take" value="fastPay" class="btn btn-success">Hemen Al</button>
+        @endif
       </form>
       @component('sections.footer')
       @endcomponent
