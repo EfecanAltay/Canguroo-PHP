@@ -19,6 +19,14 @@ if(isset($userData) && $userData !== null)
                	}
                echo "!!! You've got for ".$propText;
           	   echo '<span class="badge badge-primary badge-pill">x '.$pack->amount.' Amount</span>';
+               echo '
+                    <form method="GET"  class="d-flex" action="'.route('deleteProductOnCard' ,['package_id'=>$pack->id]).'"  style="padding:10px;" >
+                        <button type="submit" class="btn btn-danger">
+                            <i class="far  fa-trash-alt"></i>
+                        </button>
+                    </form>';
+                echo '</div>';
+
                echo "</li>";
             }
           }

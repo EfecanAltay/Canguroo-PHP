@@ -46,6 +46,9 @@ Route::get('products/{product_id}/detail/', "ProductController@getProductDetail"
 //->Take Product
 Route::get('products/{product_id}/takeProduct/', "ProductController@takeProduct");
 Route::post('products/{product_id}/takeProduct/', "ProductController@takeProduct" )->name('takeProduct');
+
+Route::get('package/deleteProductOnCard/{package_id}', "CardController@deleteProductOnCard" )->name('deleteProductOnCard');
+
 //->AddToCard / Sepete Ekle
 //->FasyPay / Hızlı Al
 
