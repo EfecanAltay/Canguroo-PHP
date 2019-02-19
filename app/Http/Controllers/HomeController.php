@@ -29,19 +29,12 @@ class HomeController extends Controller
     {
         //$request->user()->authorizeRoles(['employee', 'manager']);
        
-
         $userData = null ;
         if(Auth::check()){
-            $user = Auth::user();
-            $userData = array(
-                'name' => $user->name,
-                'surname' => $user->surname,
-                'email' => $user->email,
-                'id' => $user->id );   
+            $userData = Auth::user();
         }
         //Ürünler listesi
         $productList = Product::all();
-
 
         return view('welcome',['userData' => $userData , "products" => $productList]);
     }

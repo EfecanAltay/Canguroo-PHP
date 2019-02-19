@@ -84,6 +84,20 @@ ul.sidebarContentList{
 	background-color: red;
 }
 
+.cardNotifyButton > .iconButton > .fas {
+	cursor: pointer;
+}
+.cardNotifyButton > .iconButton > .badge {
+	position: absolute;
+	top: -6px;
+	right: -10px;
+}
+
+.cardNotifyButton > .dropdown-menu > a:hover{
+	background-color: blue;
+	color:white;
+}
+
 .footer{
   position: relative;
   right: 0;
