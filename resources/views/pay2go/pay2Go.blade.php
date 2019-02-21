@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/wizardPointer.css') }}">
         <link rel="script" href="{{ asset('bootstrap/js/bootstrap.js') }}">
         <style type="text/css">
           .list-group-item > a{
@@ -38,21 +39,28 @@
       @component('sections.breadcrumb')
       @endcomponent
       <div class="container-fluid" style="padding:20px; background-color: lightgray;">
-        <div class="row" style="min-width:1000px;">
-          <div  class="col-3" style=" padding: 0px; padding-left: 10px; ">  
-            <ul class="list-group">
-              @switch($tag)
+        @component('pay2go.wizardSelectorComponent.wizardSelector',['tag'=> $tag])
+        @endcomponent
+          <div class="pay2goBody" style="padding: 0px 50px;">
+            @switch($tag)
+
                 @case("card")
-                    @component('pay2go.cardPage',['userData'=>$userData ,'card' => $card])
-                    @endcomponent
+                  @component('pay2go.cardPage',['userData'=>$userData ,'card' => $card])
+                  @endcomponent
                 @break
+
                 @case("payment")
+                  @component('pay2go.paymentPage',['userData'=>$userData ,'card' => $card])
+                  @endcomponent
                 @break
+
                 @case("success")
+                  @component('pay2go.paymentSuccessPage',['userData'=>$userData ,'card' => $card])
+                  @endcomponent
                 @break
+
             @endswitch
           </div>
-        </div>
       </div>
       @component('sections.footer')
       @endcomponent

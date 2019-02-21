@@ -29,7 +29,6 @@ class CardController extends Controller
         
         return  $this->ControlAuth(view('pay2go.pay2Go',[ "tag"=> "card" , "card" => $card ]));
   }
-
 	public function DeleteProductOnCard(Request $request , $package_id){
 		
 		if ($request->isMethod('get')) {
