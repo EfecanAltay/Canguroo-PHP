@@ -3,7 +3,7 @@
     <div class="list-group">
     @if(isset($card))
       @if(is_countable($card->packages))
-       @component("user.profile.card.productRow",["card" => $card ])
+       @component("pay2go.cardComponent.packageListRow",["card" => $card ])
        @endcomponent
       @else
          <li class="list-group-item list-group-item-danger">

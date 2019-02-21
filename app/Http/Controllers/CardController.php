@@ -8,7 +8,28 @@ use Illuminate\Support\Facades\Auth;
 use App\UserController ;
 class CardController extends Controller
 {
-	    
+
+  
+  public function index(Request $request)
+  {
+    return $this->getCardPage($request);
+  }
+  public function ControlAuth($returningView){
+        if(Auth::check()){
+            $userData = Auth::user();
+            $returningView->with('userData' , $userData); 
+            return $returningView;
+        }
+        return redirect('/');
+  }
+  public function getCardPage(Request $request)
+  {
+        $user = Auth::user();
+        $card = $user->card()->get();
+        
+        return  $this->ControlAuth(view('pay2go.pay2Go',[ "tag"=> "card" , "card" => $card ]));
+  }
+
 	public function DeleteProductOnCard(Request $request , $package_id){
 		
 		if ($request->isMethod('get')) {
@@ -39,4 +60,5 @@ class CardController extends Controller
          } 
         return $total_cost;
     }
+
 }

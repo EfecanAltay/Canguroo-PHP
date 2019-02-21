@@ -23,7 +23,6 @@ Route::get('/logout', "LogoutController@index");
 
 Route::get('user',"UserController@index")->name('card');
 Route::get('user/profile', "UserController@index")->name('profile');
-Route::get('user/profile/card', "UserController@card")->name('card');
 Route::get('user/profile/coupon', "UserController@coupons")->name('coupons');
 Route::get('user/profile/orders', "UserController@orders")->name('orders');
 Route::get('user/profile/adress', "UserController@adress")->name('adress');
@@ -47,9 +46,14 @@ Route::get('products/{product_id}/detail/', "ProductController@getProductDetail"
 Route::get('products/{product_id}/takeProduct/', "ProductController@takeProduct");
 Route::post('products/{product_id}/takeProduct/', "ProductController@takeProduct" )->name('takeProduct');
 
-Route::get('package/deleteProductOnCard/{package_id}', "CardController@deleteProductOnCard" )->name('deleteProductOnCard');
+//Card Controller-----
 
+//->Get CardPage :
+Route::get('user/profile/card', "CardController@index")->name('getCardPage');
+//->Delete package on card :
+Route::get('package/deleteProductOnCard/{package_id}', "CardController@deleteProductOnCard" )->name('deleteProductOnCard');
 //->AddToCard / Sepete Ekle
+
 //->FasyPay / Hızlı Al
 
 

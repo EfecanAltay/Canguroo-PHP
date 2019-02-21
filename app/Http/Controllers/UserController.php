@@ -30,6 +30,7 @@ class UserController extends Controller
     }
     public function index(Request $request)
     {
+        /*
         //$store = new Store(["name" => "my shop store"]);
         //$store->save();
         $product = new Product(
@@ -42,22 +43,17 @@ class UserController extends Controller
 
         //$storeclass = Store::where("name","my shop store")->first();
         //$storeclass->products()->save($product);
-        return $this->card($request);
-    }
-    public function card(Request $request)
-    {
-        $user = Auth::user();
-        $card = $user->card()->get();
-        
-        return  $this->ControlAuth(view('user.profile',[ "tag"=> "card" , "card" => $card ]));
-    }
-    public function coupons(Request $request)
-    {
-        return $this->ControlAuth(view('user.profile',["tag"=> "coupons" ]));
+        */
+            
+        return $this->orders($request);
     }
     public function orders(Request $request)
     {
         return $this->ControlAuth(view('user.profile',["tag"=> "orders" ]));
+    }
+    public function coupons(Request $request)
+    {
+        return $this->ControlAuth(view('user.profile',["tag"=> "coupons" ]));
     }
     public function adress(Request $request)
     {

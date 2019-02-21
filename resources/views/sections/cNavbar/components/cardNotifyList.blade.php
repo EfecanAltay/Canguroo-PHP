@@ -2,7 +2,7 @@
 <?php
 	foreach ($packs as $pack) {
         echo '<div class="d-flex w-100" >';
-		echo ' <a class="dropdown-item" style="padding:10px;" href="'.route("profile").'">';
+		echo ' <a class="dropdown-item" style="padding:10px;" href="'.route("getCardPage").'">';
 
 		echo $pack->amount." x ";
 		echo $pack->product_title;
@@ -26,8 +26,13 @@
         echo '</div>';
 	}
 ?>
-@if(count($packs) == 0)
-    <div class="alert alert-warning" role="alert">
-    !! You've not product in your card
-</div>
+
+    @if(count($packs) == 0)
+        <div class="alert alert-warning" role="alert">
+        !! You've not product in your card
+    </div>
+    @else
+    <form method="GET" action="{{route('getCardPage')}}">
+        <button type= class="btn btn-success d-flex" Align="center" style="margin: 0px 10px;">Go Card</button>
+    </form>
 @endif
