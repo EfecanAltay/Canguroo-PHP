@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+//Events 
+use App\Events\AddingToCardEvent;
 
 use App\Product ;
 use App\Package ;
@@ -99,6 +101,8 @@ class ProductController extends Controller
             // Calculating Total Cost ---
             $card->total_cost = $this->calculateTotalCost($card);
             $user->card()->save($card);
+
+            //event(new AddingToCardEvent($package));
         }
         else
         {   

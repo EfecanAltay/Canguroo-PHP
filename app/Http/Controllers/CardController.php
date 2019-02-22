@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use App\UserController ;
 class CardController extends Controller
 {
-
   
   public function index(Request $request)
   {

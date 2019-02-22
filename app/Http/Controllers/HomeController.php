@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 use App\Product;
 
@@ -28,7 +29,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         //$request->user()->authorizeRoles(['employee', 'manager']);
-       
+        Log::info("Hi");
         $userData = null ;
         if(Auth::check()){
             $userData = Auth::user();
