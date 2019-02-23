@@ -2,7 +2,7 @@
 	@case("card")
 		<div class="wizard">
 		    <ul class="wizardList">
-		        <li class="active">Card</li>
+		        <li class="active"><a href="{{route('goCard')}}">Card</a></li>
 		        <li >Payment</li>
 		        <li>Completed</li>
 		    </ul>
@@ -11,7 +11,7 @@
 	@case("payment")
 		<div class="wizard">
 		    <ul class="wizardList">
-		        <li>Card</li>
+		        <li><a href="{{route('goCard')}}">Card</a></li>
 		        <li class="active">Payment</li>
 		        <li>Completed</li>
 		    </ul>
@@ -29,7 +29,7 @@
 	@default
 		<div class="wizard">
 		    <ul class="wizardList">
-		        <li class="active">Card</li>
+		        <li class="active"><a href="{{route('goCard')}}">Card</a></li>
 		        <li>Payment</li>
 		        <li>Completed</li>
 		    </ul>

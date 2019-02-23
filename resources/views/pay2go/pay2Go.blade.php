@@ -45,12 +45,12 @@
             @switch($tag)
 
                 @case("card")
-                  @component('pay2go.cardPage',['userData'=>$userData ,'card' => $card])
+                  @component('pay2go.cardPage',['userData'=>$userData ,'card' => $card , 'adressList' => $adressList])
                   @endcomponent
                 @break
 
                 @case("payment")
-                  @component('pay2go.paymentPage',['userData'=>$userData ,'card' => $card])
+                  @component('pay2go.paymentPage',['userData'=>$userData ,'card' => $card ])
                   @endcomponent
                 @break
 

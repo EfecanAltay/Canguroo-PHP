@@ -18,9 +18,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        'App\Events\AddingToCardEvent' => [
-            'App\Listeners\AddingCardListener',
+        "App\Events\AddingToCardEvent" => [
+            "App\Listeners\AddingToCardListener" 
         ],
+        "App\Events\NewUser" => [
+            "App\Listeners\UserListener"
+        ], 
     ];
 
     /**

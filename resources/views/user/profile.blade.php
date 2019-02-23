@@ -43,7 +43,7 @@
             <ul class="list-group">
               @switch($tag)
 
-                  @case('orders')
+                  @case('orders')           <!-- Case Orders  -->
                         <li class="list-group-item active"><a href="{{route('orders')}}">Siparişlerim</a></li>
                         <li class="list-group-item"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item"><a href="{{route('adress')}}">Adreslerim</a></li>
@@ -55,7 +55,7 @@
               @endcomponent
                       @break
 
-                  @case('coupons')
+                  @case('coupons')          <!-- Case Coupons  -->
                         <li class="list-group-item"><a href="{{route('orders')}}">Siparişlerim</a></li>
                         <li class="list-group-item active"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item"><a href="{{route('adress')}}">Adreslerim</a></li>
@@ -66,8 +66,8 @@
               @component('user.profile.coupons',['userData' => $userData])
               @endcomponent
                       @break
-
-                  @case('adresses')
+                                          
+                  @case('adresses')             <!-- Case Adress  -->
                         <li class="list-group-item"><a href="{{route('orders')}}">Siparişlerim</a></li>
                         <li class="list-group-item"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item active"><a href="{{route('adress')}}">Adreslerim</a></li>
@@ -83,8 +83,8 @@
                   ])                  
               @endcomponent
                       @break
-
-                  @case('settings')
+                                          
+                  @case('settings')             <!-- Case Settings  -->
                         <li class="list-group-item"><a href="{{route('orders')}}">Siparişlerim</a></li>
                         <li class="list-group-item"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item"><a href="{{route('adress')}}">Adreslerim</a></li>
@@ -106,8 +106,8 @@
               @component('user.profile.settings',['userData' => $userData])
               @endcomponent
                       @break
-
-                  @default
+                                            
+                  @default                      <!-- Case Default  -->
                         <li class="list-group-item active"><a href="{{route('orders')}}">Siparişlerim</a></li>
                         <li class="list-group-item"><a href="{{route('coupons')}}">Kuponlarım</a></li>
                         <li class="list-group-item"><a href="{{route('adress')}}">Adreslerim</a></li>

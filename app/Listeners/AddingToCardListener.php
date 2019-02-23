@@ -6,7 +6,7 @@ use App\Events\AddingToCardEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class AddingCardListener
+class AddingToCardListener
 {
     /**
      * Create the event listener.
@@ -26,6 +26,6 @@ class AddingCardListener
      */
     public function handle(AddingToCardEvent $event)
     {
-        app('log')->info('new package created');
+        //
     }
 }

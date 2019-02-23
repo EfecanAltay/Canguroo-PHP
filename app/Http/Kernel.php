@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrustProxies::class,
         // appending custom middleware 
         //\App\Http\Middleware\HttpsProtocol::class,
+        
     ];
     /**
      * The application's route middleware groups.

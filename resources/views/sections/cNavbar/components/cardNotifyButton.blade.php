@@ -17,10 +17,11 @@
 			 	<?php
 					$userData = $links['userData'];
 					$packCount = 0;
+					$packs = null;
 					if(isset($userData) && $userData !== null)
 				        if($userData->card() !== null){
 				          $card = $userData->card()->get();
-				          	if($card->packages() !== null){
+				          	if($card !== null && $card->packages() !== null){
 				            	$packs = $card->packages()->all();
 				            	$packCount = count($packs);
 				          	}

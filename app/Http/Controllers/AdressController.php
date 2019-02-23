@@ -13,15 +13,7 @@ class AdressController extends Controller
 
     public function ControlAuth($returningView){
         if(Auth::check()){
-            $user = Auth::user();
-            $userData = array(
-                'name' => $user->name,
-                'surname' => $user->surname,
-                'email' => $user->email,
-                'gender' => $user->gender,
-                'birthday' => $user->birthday,
-                'phone' => $user->phone,
-                'id' => $user->id );
+            $userData = Auth::user();
             $returningView->with('userData' , $userData); 
             return $returningView;
         }
@@ -55,9 +47,8 @@ class AdressController extends Controller
 		}else{
 
 		}
-
-     
     }
+
     public function getAdress(Request $request){
         $adress_id = $request->input('adress_id');
         $user = Auth::user();
@@ -71,6 +62,7 @@ class AdressController extends Controller
                     "adressList" => $adress
                 ]));
     }
+
     public function deleteAdress(Request $request){
         $adress_id = $request->input('adress_id');
         $user = Auth::user();
@@ -87,6 +79,7 @@ class AdressController extends Controller
                 "adressList" => $adressList 
             ]));
     }
+    
     public function updateAdress(Request $request){
         $adress_id = $request->input('adress_id');
         $title = $request->input('title');

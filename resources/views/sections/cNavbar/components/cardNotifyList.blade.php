@@ -1,5 +1,6 @@
 
 <?php
+    if($packs !== null)
 	foreach ($packs as $pack) {
         echo '<div class="d-flex w-100" >';
 		echo ' <a class="dropdown-item" style="padding:10px;" href="'.route("goCard").'">';
@@ -26,7 +27,7 @@
         echo '</div>';
 	}
 ?>
-
+@if($packs !== null)
     @if(count($packs) == 0)
         <div class="alert alert-warning" role="alert">
         !! You've not product in your card
@@ -35,4 +36,9 @@
     <form method="GET" action="{{route('goCard')}}">
         <button type= class="btn btn-success d-flex" Align="center" style="margin: 0px 10px;">Go Card</button>
     </form>
+    @endif
+@else
+    <div class="alert alert-warning" role="alert">
+        !! You've not product in your card
+    </div>
 @endif

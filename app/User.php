@@ -17,6 +17,10 @@ class User extends Authenticatable
 {
 	use AuthenticableTrait;
 
+	protected $dispatchesEvents= [
+        'created'=>Events\NewUser::class,
+    ];
+
     protected $connection = 'mongodb';
 
     protected $fillable = ['name','surname','email', 'password','phone','birthday','gender']; 
