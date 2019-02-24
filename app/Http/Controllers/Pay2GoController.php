@@ -49,6 +49,7 @@ class Pay2GoController extends Controller
         //$card = $user->card()->get();
         $card = DBCardController::getCard();
         $cargoPack = DBCargoPack::createPack();
+        
         //Create CargoPack();
 
         return  $this->ControlAuth(view('pay2go.pay2Go',[ "tag"=> "success" , "card" => $card ]));

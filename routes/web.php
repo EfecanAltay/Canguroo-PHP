@@ -39,7 +39,6 @@ Route::post('user/profile/adress/delete', "AdressController@deleteAdress")->name
 Route::post('user/profile/adress/update', "AdressController@updateAdress")->name('updateAdress');
 
 //Products
-
 Route::get('products/{product_id}/detail/', "ProductController@getProductDetail")->name('getProductDetail');
 
 //->Take Product

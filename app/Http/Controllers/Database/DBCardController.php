@@ -80,16 +80,16 @@ class DBCardController
         $user->card()->save($card);
 
     }
-    public static function deletePackageToCard($package_id){
+    public static function deletePackageToCard($packages_id){
 
         $card = DBCardController::getCard();
         
         $user = Auth::user();
             
-        if($card !== null && $card->packages() !== null){
-            $pack = $card->packages()->find($package_id);
-            if($pack !== null)
+        if($packages !== null){
+            foreach ($packages as $pack) {
                 $pack->delete();
+            }
         }
 
         $card->total_cost = DBCardController::calculateTotalCost($card);

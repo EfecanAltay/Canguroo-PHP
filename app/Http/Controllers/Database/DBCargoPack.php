@@ -30,11 +30,13 @@ class DBCargoPack
 					"product_title"=>$package->product_title,
 					"product_props"=>$package->product_props
         		]);
+            $package->delete();
         	$cargoPack->packages()->save($pack);
         }
 
         $userinfo = new UserInfo(['name' => $user->name ,'surname' => $user->surname , 'user_id' => $user->id]);
         $cargoPack->userinfo()->save($userinfo);
-        
+        return $cargoPack;
     }
+
 }
