@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Role;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Database\DBUserController;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
 
 class RegisterController extends Controller
 {
@@ -63,17 +64,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $userdata)
     {
-           $user = User::create([
-              'name' => $data['name'],
-              'surname' => $data['surname'],
-              'email'    => $data['email'],
-              'password' => bcrypt($data['password'])
-            ]);
-            $user
-               ->roles()
-               ->attach(Role::where('name', 'employee')->first());
-            return $user;
+        $user = DBUserController::createUser($userdata);
+        return $user;
     }
 }

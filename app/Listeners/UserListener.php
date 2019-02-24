@@ -6,6 +6,8 @@ use App\Events\NewUser;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+use App\Card;
+
 class UserListener
 {
     /**

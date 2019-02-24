@@ -74,13 +74,17 @@ class UserController extends Controller
         return $this->ControlAuth(view('user.profile',["tag"=> "settings" ,"updated"=> 0]));
     }
     public function updateUserData(Request $request){
-        $user = Auth::user();
-        $user->name = $request->input('name');
-        $user->surname = $request->input('surname');
-        $user->phone = $request->input('phone');
-        $user->birthday = $request->input('birthday');
-        $user->gender = $request->input('gender');
-        $user->save();
+
+        $userDataArray = array(
+           "name" => $request->input('name'),
+           "surname" =>$request->input('surname'),
+           "phone" => $request->input('phone'),
+           "birthday" => $request->input('birthday'),
+           "gender" => $request->input('gender')
+        );
+
+        DBUserController::updateUserInfo($userDataArray);
+
         return $this->ControlAuth(view('user.profile',["tag"=> "settings" ,"updated"=> 1]));
     }
 }

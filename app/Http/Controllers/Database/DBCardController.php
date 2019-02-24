@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Database;
 
 use Illuminate\Support\Facades\Auth;
@@ -9,18 +8,22 @@ use App\User;
 use App\Package;
 use App\Product;
 
+use App\Card;
+
 class DBCardController 
 {
 
     public static function haveCard(User $user){
-    	if($user->card() !== null )
+        $card = $user->card()->get();
+    	if($card !== null)
     	{
+            app('log')->info("card var !!!");
     		return true;
     	}
+        app('log')->info("card yok !!!");
     	return false ;
     }
     public static function controlCard(){
-
     	$user = Auth::user();
     	$haveCard = DBCardController::haveCard($user);
     	if(!$haveCard){
@@ -34,6 +37,7 @@ class DBCardController
     public static function createCard(User $user){
     	 $card = new Card(["total_cost" => 0]);
          $user->card()->save($card);
+
          return $user->card()->get();
     }
     public static function createPackage($amount,$product_id,$props){
@@ -55,7 +59,8 @@ class DBCardController
  	public static function getPackages(){
         $card = DBCardController::getCard();
         $packages = $card->packages();
-        if($packages === null)
+
+        if($packages == null)
         	return Array();
         return $packages;
     }
@@ -110,10 +115,18 @@ class DBCardController
         
         $total_cost = 0;
         $packages = $card->packages()->all();
+
         foreach ($packages as $package) {
              $total_cost += $package->pack_cost;
          } 
         return $total_cost;
+    }
+    public static function getPackagesToCardByProductId($productId){
+        
+        $allpacks = DBCardController::getPackages();
+        $packs = $allpacks->where("product_id","=",$productId);
+        
+        return $packs;
     }
 
 }

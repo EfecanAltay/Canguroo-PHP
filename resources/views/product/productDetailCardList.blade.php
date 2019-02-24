@@ -1,12 +1,11 @@
 <ul class="list-group">
 <?php
-if(isset($userData) && $userData !== null)
-        if($userData->card() !== null){
-          $card = $userData->card()->get();
-          if($card->packages() !== null){
-            $packs = $card->packages()->where("product_id","=",$product->id);
-            foreach ($packs as $pack) {
-            	echo '<li class="list-group-item d-flex justify-content-between align-items-center list-group-item-warning">';
+
+use App\Http\Controllers\Database\DBCardController ;
+
+  $packs = DBCardController::getPackagesToCardByProductId($product->id); 
+  foreach ($packs as $pack) {
+  echo '<li class="list-group-item d-flex justify-content-between align-items-center list-group-item-warning">';
                	$onCard = true ;
                	$propText = "";
                	if($pack->product_props != null)
@@ -28,8 +27,7 @@ if(isset($userData) && $userData !== null)
                 echo '</div>';
 
                echo "</li>";
-            }
-          }
-        }
+  }
+      
 ?>
 </ul>
