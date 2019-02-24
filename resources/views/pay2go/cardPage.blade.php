@@ -3,6 +3,7 @@
 @endcomponent
 
 <div class="card border-success" style="margin: 20px 0px;text-align: center;">
+	<div class="card-header"><b>Fatura Bilgileri</b></div>
     <div class="card-body ">
       <p class="card-text" >Total <h1 style="color:green;">{{ $card->total_cost }}₺</h1></p>
     </div>

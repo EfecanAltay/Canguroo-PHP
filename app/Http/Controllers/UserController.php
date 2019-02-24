@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\Database\DBCargoPack;
 use App\Adress;
 use App\Product;
 use App\Store;
@@ -49,7 +50,9 @@ class UserController extends Controller
     }
     public function orders(Request $request)
     {
-        return $this->ControlAuth(view('user.profile',["tag"=> "orders" ]));
+        $cargoPacks = DBCargoPack::getPacks();
+
+        return $this->ControlAuth(view('user.profile',["tag"=> "orders","cargoPacks" => $cargoPacks]));
     }
     public function coupons(Request $request)
     {

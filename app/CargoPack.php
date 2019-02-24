@@ -10,7 +10,7 @@ use App\UserInfo;
 class CargoPack extends Eloquent
 {
     protected $connection = 'mongodb';
-    protected $fillable = ['status'];
+    protected $fillable = ['user_id','status'];
 
     public function userInfo()
 	{

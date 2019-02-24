@@ -9,8 +9,7 @@ use App\Http\Controllers\Database\DBAdressController;
 
 class AdressController extends Controller
 {  
-
-
+    
     public function ControlAuth($returningView){
         if(Auth::check()){
             $userData = Auth::user();
@@ -60,7 +59,7 @@ class AdressController extends Controller
         $adress_id = $request->input('adress_id');
         
         DBAdressController::deleteAdress($adress_id);
-        
+
         $adressList = DBAdressController::getAdresses();
      
         return $this->ControlAuth(view('user.profile',

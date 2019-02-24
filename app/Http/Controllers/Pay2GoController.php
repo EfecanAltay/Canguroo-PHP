@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Auth;
 use App\CargoPack ;
 use App\UserInfo ;
 
-use App\Http\Controllers\Database\DBCardController ;
-use App\Http\Controllers\Database\DBCargoPack ;
+use App\Http\Controllers\Database\DBCardController;
+use App\Http\Controllers\Database\DBCargoPack;
+use App\Http\Controllers\Database\DBAdressController;
 
 
 class Pay2GoController extends Controller
@@ -28,16 +29,14 @@ class Pay2GoController extends Controller
   }
   public function goCard(Request $request)
   {
-        $user = Auth::user();
-        $card = $user->card()->get();
-        $adressList = $user->adresses()->get();
+        $card = DBCardController::getCard();
+        $adressList = DBAdressController::getAdresses();
         
         return  $this->ControlAuth(view('pay2go.pay2Go',[ "tag"=> "card" , "card" => $card ,"adressList" => $adressList ]));
   }
   public function goPayment(Request $request)
   {
-        $user = Auth::user();
-        $card = $user->card()->get();
+        $card = DBCardController::getCard();
         
         return  $this->ControlAuth(view('pay2go.pay2Go',[ "tag"=> "payment" , "card" => $card ]));
   }

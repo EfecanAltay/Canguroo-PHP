@@ -51,7 +51,7 @@
                      </ul>
                 </div>
                 <div class="col-9" style="padding:50px;"> 
-              @component('user.profile.orders',['userData' => $userData])
+              @component('user.profile.orders',['userData' => $userData ,'cargoPacks' => $cargoPacks])
               @endcomponent
                       @break
 

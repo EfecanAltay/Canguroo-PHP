@@ -13,6 +13,6 @@ class UserInfo extends Eloquent
 {
 
 	public $name;
-	public $fillable = ['name' , 'surname' , 'userId'];
+	public $fillable = ['name' , 'surname'];
 
 }

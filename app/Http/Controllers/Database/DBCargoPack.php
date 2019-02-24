@@ -9,14 +9,14 @@ use App\Package;
 
 use App\User;
 
-class DBCargoPack 
+class DBCargoPack   // Order Control
 {
     public static function createPack(){
      	
     	$user = Auth::user();
     	$packages = DBCardController::getPackages()->all();
 
-    	$cargoPack = new CargoPack(['status' => 'waiting success']);
+    	$cargoPack = new CargoPack(['status' => 'waiting success' , 'user_id' => $user->id]);
 		$cargoPack->save();
 
 		foreach ($packages as $package) 
@@ -32,9 +32,15 @@ class DBCargoPack
         	$cargoPack->packages()->save($pack);
         }
 
-        $userinfo = new UserInfo(['name' => $user->name ,'surname' => $user->surname , 'user_id' => $user->id]);
+        $userinfo = new UserInfo(['name' => $user->name ,'surname' => $user->surname ]);
         $cargoPack->userinfo()->save($userinfo);
         return $cargoPack;
+    }
+
+    public static function getPacks(){
+        $user = Auth::user();
+        $packages = CargoPack::where("user_id","=",$user->id)->get();
+        return $packages;
     }
 
 }
