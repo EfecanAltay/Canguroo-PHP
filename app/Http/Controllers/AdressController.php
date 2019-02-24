@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Adress;
+use App\Http\Controllers\Database\DBAdressController;
 
 class AdressController extends Controller
 {  
@@ -27,15 +27,9 @@ class AdressController extends Controller
 	      	$adress = $request->input('adress');
 	      	$post_code = $request->input('post_code');
 
-	      	$adress = new Adress(['title' => $title ,'adress' => $adress , 'post_code' => $post_code ]);
-	      
-	      	$user = Auth::user();
-	      	$useradresses = $user->adresses();
-	      	if(isset($useradresses))
-	      	{
-	      	  $useradresses->save($adress);
-	      	}
-	      	return redirect('user/profile/adress/');
+	        DBAdressController::AddAdress($title,$adress,$post_code);
+	      	
+            return redirect('user/profile/adress/');
 
 		}else if($request->isMethod('get')){
 			return $this->ControlAuth(view('user.profile',
@@ -51,9 +45,8 @@ class AdressController extends Controller
 
     public function getAdress(Request $request){
         $adress_id = $request->input('adress_id');
-        $user = Auth::user();
 
-        $adress = $user->adresses()->find($adress_id);
+        $adress = DBAdressController::getAdress($adress_id );
      
         return $this->ControlAuth(view('user.profile',
                 [
@@ -65,12 +58,10 @@ class AdressController extends Controller
 
     public function deleteAdress(Request $request){
         $adress_id = $request->input('adress_id');
-        $user = Auth::user();
-
-        $adress = $user->adresses()->find($adress_id);
-        $adress->delete();
-
-        $adressList = $user->adresses()->get();
+        
+        DBAdressController::deleteAdress($adress_id);
+        
+        $adressList = DBAdressController::getAdresses();
      
         return $this->ControlAuth(view('user.profile',
             [
@@ -81,20 +72,18 @@ class AdressController extends Controller
     }
     
     public function updateAdress(Request $request){
+        
         $adress_id = $request->input('adress_id');
-        $title = $request->input('title');
-        $adress_text = $request->input('adress');
-        $post_code = $request->input('post_code');
 
-        $user = Auth::user();
-        $adress = $user->adresses()->find($adress_id);
+        $updatedArray = array(
+                'title' => $request->input('title'),
+                'adress_text' => $request->input('adress'),
+                'post_code' => $request->input('post_code')
+            );
 
-        $adress->title = $title;
-        $adress->adress = $adress_text;
-        $adress->post_code = $post_code;
-        $adress->save();
-
-        $adressList = $user->adresses()->get();
+        DBAdressController::updateAdress($adress_id,$updatedArray);
+        
+        $adressList = DBAdressController::getAdresses();
      
         return $this->ControlAuth(view('user.profile',
             [
