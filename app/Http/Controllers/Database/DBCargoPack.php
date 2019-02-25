@@ -7,8 +7,6 @@ use App\CargoPack;
 use App\UserInfo;
 use App\Package;
 
-use App\User;
-
 class DBCargoPack   // Order Control
 {
     public static function createPack(){
@@ -40,6 +38,13 @@ class DBCargoPack   // Order Control
     public static function getPacks(){
         $user = Auth::user();
         $packages = CargoPack::where("user_id","=",$user->id)->get();
+        return $packages;
+    }
+
+    public static function getPack($cargo_id){
+        $user = Auth::user();
+        $packages = CargoPack::where("user_id","=",$user->id)->find($cargo_id);
+
         return $packages;
     }
 

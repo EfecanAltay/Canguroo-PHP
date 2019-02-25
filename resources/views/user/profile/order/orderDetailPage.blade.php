@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/wizardPointer.css') }}">
         <link rel="script" href="{{ asset('bootstrap/js/bootstrap.js') }}">
         <style type="text/css">
           .list-group-item > a{
@@ -37,32 +38,26 @@
       @endcomponent
       @component('sections.breadcrumb')
       @endcomponent
-      <h1>{{$product->title}}</h1>
-      </br>
-      <h3>cost : {{$product->cost}}₺</h3>
-      </br>
-      <?php
-      $onCard = false ;
-      ?>
-      @if(isset($userData))
-        @component('product.productDetailCardList',["userData"=>$userData ,"product"=>$product])
-        @endcomponent
-      @endif
-      </br>
-      <form method="POST" action="{{route('takeProduct',['product_id'=>$product->id]) }}" >
-        @csrf
-        <label>Color :</label>
-        <input type="text" name="color" required/> </br>
-        <label>Amound :</label>
-        <input type="number" name="amount" required/> </br>
-        @if($onCard)
-          <button type="submit" name="take" value="addToCard" class="btn btn-primary">Bunuda Sepete Ekle</button>
-          <button type="submit" name="take" value="fastPay" class="btn btn-success">Hemen Al</button>
-        @else
-          <button type="submit" name="take" value="addToCard" class="btn btn-primary">Sepete Ekle</button>
-          <button type="submit" name="take" value="fastPay" class="btn btn-success">Hemen Al</button>
-        @endif
-      </form>
+      <div class="container-fluid" style="padding:20px; background-color: lightgray;">
+        <li>
+          <ul> cargo numarası (id) : {{ $cargoPack->id }}</ul>
+          <ul> status : {{ $cargoPack->status }}</ul>
+          <ul> kime ait : {{ $cargoPack->userInfo }}</ul>
+          <ul>
+            <li>
+            <?php
+              $packs = $cargoPack->packages()->all();
+
+              foreach ($packs as $pack) {
+                echo "<ul>";
+                echo $pack->amount." x ".$pack->product_title." ";
+                echo "</ul>";
+              }
+            ?>
+            </li>
+          </ul>
+        </li>
+      </div>
       @component('sections.footer')
       @endcomponent
     </body>

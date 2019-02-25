@@ -17,6 +17,7 @@ class ProductController extends Controller
 
 	//name : getProductDetail
     public function getProductDetail(Request $request , $product_id){
+        
     	$userData = Auth::user();
     	$product = Product::find($product_id);
 

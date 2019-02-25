@@ -41,10 +41,6 @@ Route::post('user/profile/adress/update', "AdressController@updateAdress")->name
 //Products
 Route::get('products/{product_id}/detail/', "ProductController@getProductDetail")->name('getProductDetail');
 
-//->Take Product
-Route::get('products/{product_id}/takeProduct/', "ProductController@takeProduct");
-Route::post('products/{product_id}/takeProduct/', "ProductController@takeProduct" )->name('takeProduct');
-
 //-----
 //pay2GoController-----
 
@@ -56,8 +52,18 @@ Route::post('user/profile/payment/success', "Pay2GoController@goSuccess")->name(
 //->Delete package on card :
 Route::get('package/deleteProductOnCard/{package_id}', "CardController@deleteProductOnCard" )->name('deleteProductOnCard');
 //->AddToCard / Sepete Ekle
-
+Route::get('products/{product_id}/takeProduct/', "ProductController@takeProduct");
+Route::post('products/{product_id}/takeProduct/', "ProductController@takeProduct" )->name('takeProduct');
 //->FasyPay / Hızlı Al
+
+//order 
+	// -> name: orders
+
+//orderDetail
+Route::get('products/{order_id}/orderDetail/', "OrderController@getOrderDetail" )->name('getOrderDetail');
+
+
+
 
 
 

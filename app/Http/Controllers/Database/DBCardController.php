@@ -25,6 +25,7 @@ class DBCardController
     }
     public static function controlCard(){
     	$user = Auth::user();
+        
     	$haveCard = DBCardController::haveCard($user);
     	if(!$haveCard){
     		return DBCardController::createCard($user);

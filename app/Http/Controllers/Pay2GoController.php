@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\CargoPack ;
-use App\UserInfo ;
-
 use App\Http\Controllers\Database\DBCardController;
 use App\Http\Controllers\Database\DBCargoPack;
 use App\Http\Controllers\Database\DBAdressController;
