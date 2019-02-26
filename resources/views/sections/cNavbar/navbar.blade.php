@@ -6,9 +6,7 @@
 ?>
 <nav class="navbar navbar-expand cNavbar" style="width: 100%; height:140px;">
   <a class="navbar-brand" href="{{route('home')}}">
-    <h1>
-    Canguroo.com
-    </h1>
+    <img src="{{url('imgs/canguroo_logo_v1.png')}}" width="260" style="background-color: transparent;margin-bottom:20px;"></img>
   </a>
   <div class="collapse navbar-collapse" >
     <ul class="navbar-nav navbar-collapse">
@@ -30,9 +28,9 @@
   </div>
 </nav>
 <nav  id="navbar" class="navbar navbar-expand flex-column flex-md-row cNavbar" style=" display: none ; position:fixed; top:0px; width: 100%; z-index: 999999999;" >
-  <a class="navbar-brand" href="#"><h1>
-    Cangoroo.com
-  </h1></a>
+  <a class="navbar-brand" href="{{route('home')}}" style="padding:0px;margin: 0px;">
+    <img src="{{url('imgs/canguroo_logo_v1.png')}}" width="260" style="background-color:red; margin:0px;"></img>
+  </a>
   <button class="navbar-toggler" type="button" data-  toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

@@ -58,9 +58,13 @@ Route::post('products/{product_id}/takeProduct/', "ProductController@takeProduct
 
 //order 
 	// -> name: orders
-
 //orderDetail
 Route::get('products/{order_id}/orderDetail/', "OrderController@getOrderDetail" )->name('getOrderDetail');
+
+//Store
+Route::get('store/{order_id}', "StoreController@getStore" )->name('getStore');
+
+
 
 
 
