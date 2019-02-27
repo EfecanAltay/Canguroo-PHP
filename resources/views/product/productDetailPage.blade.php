@@ -6,19 +6,26 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Canguroo</title>
-        <link rel="stylesheet" type="text/css" href="semantic/out/semantic.min.css">
+       
         <script
           src="https://code.jquery.com/jquery-3.1.1.min.js"
           integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
           crossorigin="anonymous"></script>
-        <script src="semantic/out/semantic.min.js"></script>
-
+       
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/cCarousel.css') }}" rel="stylesheet">
+      
+        <link rel="stylesheet" type="text/css" href="{{ url('css/docs.css')}}" />
+        
+        <link rel="stylesheet" type="text/css" href="{{ url('css/prettify.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{ url('css/bootstrap-colorselector.min.css') }}">
+        <script src="{{ url('js/bootstrap-colorselector.min.js') }}">as</script>
+
         
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{ asset('js/app.js') }}"></script>
+
         <link rel="script" href="{{ asset('bootstrap/js/bootstrap.js') }}">
         <style type="text/css">
           .list-group-item > a{
@@ -31,38 +38,34 @@
           }
         </style>
     </head>
-    <body style="" >
-      <div style="  height: 60px; background-color: black ; color: white;"> Adds</div>
+    <body style="position: relative; padding: 0px; background-color: gray;">
+      <div style="height: 60px; background-color: black; color:white;"> Adds</div>
       @component('sections.cNavbar.navbar',['userData' => $userData])
       @endcomponent
       @component('sections.breadcrumb')
       @endcomponent
-      <h1>{{$product->title}}</h1>
-      </br>
-      <h3>cost : {{$product->cost}}₺</h3>
-      </br>
-      <?php
-      $onCard = false ;
-      ?>
-      @if(isset($userData))
-        @component('product.productDetailCardList',["userData"=>$userData ,"product"=>$product])
-        @endcomponent
-      @endif
-      </br>
-      <form method="POST" action="{{route('takeProduct',['product_id'=>$product->id]) }}" >
-        @csrf
-        <label>Color :</label>
-        <input type="text" name="color" required/> </br>
-        <label>Amound :</label>
-        <input type="number" name="amount" required/> </br>
-        @if($onCard)
-          <button type="submit" name="take" value="addToCard" class="btn btn-primary">Bunuda Sepete Ekle</button>
-          <button type="submit" name="take" value="fastPay" class="btn btn-success">Hemen Al</button>
-        @else
-          <button type="submit" name="take" value="addToCard" class="btn btn-primary">Sepete Ekle</button>
-          <button type="submit" name="take" value="fastPay" class="btn btn-success">Hemen Al</button>
-        @endif
-      </form>
+      <div></div>
+      <div class="row">
+        <div style="margin: 30px 0px; width: 900px; margin:0px auto;" >
+          <div class="row">
+          @component('product.components.product_carousel')
+          @endcomponent
+          @component('product.components.product_detail',["product"=>$product])
+          @endcomponent
+          </div>
+        </div>
+        <div class="col-12 col-lg-3"  style="background-color: lightgray; width: 300px; padding: 50px;">
+          <img style="width: 100px;height: 100px; background-color: white; float:left;"></img>
+          <div style="float:left; padding-left: 10px;">
+              <h3>Store Name</h3> 
+              <h5>Store Desc.</h5>
+                <form method="GET" action="{{route('getStore',['store_id'=> $product->store_id])}}">
+                  <input class="btn btn-info" type="submit" value="go store" />  
+                </form>
+          </div>
+        </div>
+      </div>
+      
       @component('sections.footer')
       @endcomponent
     </body>
