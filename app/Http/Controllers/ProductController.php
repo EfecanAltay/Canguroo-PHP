@@ -12,9 +12,17 @@ use App\Product ;
 use App\Package ;
 use App\Card ;
 
-class ProductController extends Controller
-{ 
+use App\Http\Controllers\HomeController;
 
+class ProductController extends Controller
+{
+
+   
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        //$this->middleware('guest');
+    }
 	//name : getProductDetail
     public function getProductDetail(Request $request , $product_id){
         

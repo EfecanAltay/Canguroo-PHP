@@ -42,7 +42,13 @@
       <div style="height: 60px; background-color: black; color:white;"> Adds</div>
       @component('sections.cNavbar.navbar',['userData' => $userData])
       @endcomponent
-      @component('sections.breadcrumb')
+      <?php 
+        $link = array('name' => 'Home','url'=>'/' );
+        $link1 = array('name' => 'Electronics','url'=>'/electronics' );
+        
+        $pages = array($link,$link1);
+      ?>
+      @component('sections.breadcrumb' ,['pages' => $pages ] )
       @endcomponent
       <div></div>
       <div class="row">

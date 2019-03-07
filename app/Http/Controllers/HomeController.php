@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 use App\Product;
+use App\SubCategori;
+use App\Categori;
+use App\Http\Controllers\Database\DBCategoriController;
+use App\Http\Controllers\Database\DBProductController;
+
 
 class HomeController extends Controller
 {
@@ -29,11 +34,24 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         //$request->user()->authorizeRoles(['employee', 'manager']);
-        Log::info("Hi");
         $userData = null ;
         if(Auth::check()){
             $userData = Auth::user();
         }
+    
+        $catId = DBCategoriController::createCategori("Eğlence");
+        $subCatId = DBCategoriController::createSubCategori("Oyuncak",$catId);
+
+
+        DBProductController::createProduct(
+            "Sitres Çarkı",
+            "Süper Hızlı Sitresinizi atar",
+            "5",
+            $subCatId,
+            "5c673784fbc3b403ab07911b",
+            null
+        );
+
         //Ürünler listesi
         $productList = Product::all();
 

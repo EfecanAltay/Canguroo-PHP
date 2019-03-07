@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Store;
 use App\Product;
+use App\SubCategori;
 
 class DBProductController
 {
@@ -20,5 +21,29 @@ class DBProductController
 		if($products !== null)
 			return $products->get();
 		return array();
+	}
+
+	public static function createProduct($title,$subtitle,$cost,$sub_categori_id,$store_id,$props){		
+		$sub_categori = SubCategori::find($sub_categori_id)->first();
+		
+		if($sub_categori == null)
+			return null ;
+		$store = Store::find($store_id)->first();
+		if($store == null)
+			return null ;
+
+		$product = new Product(
+			[
+				'title' => $title,
+				'subtitle' => $subtitle,
+				'cost' => $cost,
+				'store_id' => $store_id,
+				'props' => $props
+			]);
+		$product->save();
+		$sub_categori->product()->save($product);
+		$store->products()->save($product);
+
+		return $product->_id;
 	}
 }
