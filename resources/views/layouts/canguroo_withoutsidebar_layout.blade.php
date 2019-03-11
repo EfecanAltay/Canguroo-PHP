@@ -25,22 +25,8 @@
       @component('sections.cNavbar.navbar', ['userData' => $userData])
       @endcomponent
       <div style="background-color: lightgray;">
-        @component('sections.cSidebar.sidebar')
-        @endcomponent
-        <div style="margin:0px auto; padding:0px; height: 100%; width:100%; background-color: lightgray;">
-            @component('sections.cSidebar.sidebarItemContentList')
-            @endcomponent
-            @component('sections.carousel')
-            @endcomponent
-            <!--
-            @component('sections.breadcrumb')
-            @endcomponent
-            -->
-            <div  class="cContent" style="">
-            @component('sections.content',["products" => $products])
-            @endcomponent
-            </div>
-        </div>
+            @section('content')
+            @show
       </div>
       @component('sections.footer')
       @endcomponent

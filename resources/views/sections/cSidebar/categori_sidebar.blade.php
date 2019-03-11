@@ -1,0 +1,1 @@
+@extends('sections.cSidebar.sidebar2_layout' , ["item" => $item])

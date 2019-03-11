@@ -30,4 +30,17 @@ class DBCategoriController
 		$categori = Categori::find($categoriId)->first();
 		return $categori;
 	}
+	public static function getCategoriWithName($categoriName){
+		$categoriName = iconv('UTF-8', 'UTF-8//IGNORE', $categoriName);
+		$categori = Categori::where("categori_name","=",$categoriName)->first();
+		return $categori;
+	}
+	public static function getCategories(){
+		$categories = Categori::all();
+		return $categories;
+	}
+	public static function getSubCategories($categoriID){
+		$subcategories = SubCategori::where("categori_id","=",$categoriID)->get();
+		return $subcategories;
+	}
 }

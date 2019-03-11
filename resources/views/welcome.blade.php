@@ -7,5 +7,5 @@
 		$products = null;
 	}
 ?>
-@component('layouts.cangoroo_layout',['userData' => $userData , "products" => $products])
+@component('home',['userData' => $userData , "products" => $products])
 @endcomponent

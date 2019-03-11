@@ -11,14 +11,11 @@
 </style>
 <div aria-label="breadcrumb" style="padding: 0px; opacity: 0px;  background-color: #D0CFCF;" >
   <ol class="breadcrumb" style=" background-color: transparent; margin:0px;">
+    <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
   	<?php
-  	$link = array('name' => 'Home' ,'url' => '/url' );
-  	$link1 = array('name' => 'Home' ,'url' => '/url' );
-  	$link2 = array('name' => 'Home' ,'url' => '/url' );
-  	if(isset($pages)){
-	  	
-	  	foreach ($pages as $key) {
-	  		echo '<li class="breadcrumb-item"><a href="'.$key['url'].'">'.$key['name'].'</a></li>';
+  	if(isset($links)){
+	  	foreach ($links as $link) {
+	  		echo '<li class="breadcrumb-item"><a href="'.$link['url'].'">'.$link['name'].'</a></li>';
 	  	}
   	}
   	?>

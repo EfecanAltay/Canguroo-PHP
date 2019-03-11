@@ -39,19 +39,6 @@ class HomeController extends Controller
             $userData = Auth::user();
         }
     
-        $catId = DBCategoriController::createCategori("Eğlence");
-        $subCatId = DBCategoriController::createSubCategori("Oyuncak",$catId);
-
-
-        DBProductController::createProduct(
-            "Sitres Çarkı",
-            "Süper Hızlı Sitresinizi atar",
-            "5",
-            $subCatId,
-            "5c673784fbc3b403ab07911b",
-            null
-        );
-
         //Ürünler listesi
         $productList = Product::all();
 

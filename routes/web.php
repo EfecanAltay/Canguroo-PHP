@@ -40,7 +40,6 @@ Route::post('user/profile/adress/update', "AdressController@updateAdress")->name
 
 //Products
 Route::get('products/{product_id}/detail/', "ProductController@getProductDetail")->name('getProductDetail');
-
 //-----
 //pay2GoController-----
 
@@ -63,6 +62,11 @@ Route::get('products/{order_id}/orderDetail/', "OrderController@getOrderDetail" 
 
 //Store
 Route::get('store/{order_id}', "StoreController@getStore" )->name('getStore');
+
+//Categori
+Route::get('products/categories', "CategoriController@index" )->name('getCategories');
+
+Route::get('products/categories/{categori_name}', "CategoriController@getSubCategoriPage" )->name('getSubCategoriPage');
 
 
 

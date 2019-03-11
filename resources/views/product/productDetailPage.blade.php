@@ -43,12 +43,14 @@
       @component('sections.cNavbar.navbar',['userData' => $userData])
       @endcomponent
       <?php 
-        $link = array('name' => 'Home','url'=>'/' );
-        $link1 = array('name' => 'Electronics','url'=>'/electronics' );
         
-        $pages = array($link,$link1);
+        $cate_link= array('name' => $categori_name,'url'=>route('getSubCategoriPage' ,$categori_name) );
+        $sub_cate_link= array('name' => $sub_categori_name,'url'=>"" );
+
+        $links = array($cate_link,$sub_cate_link);
+
       ?>
-      @component('sections.breadcrumb' ,['pages' => $pages ] )
+      @component('sections.breadcrumb' ,['links' => $links ] )
       @endcomponent
       <div></div>
       <div class="row">

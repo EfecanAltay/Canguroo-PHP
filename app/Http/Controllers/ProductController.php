@@ -1,5 +1,4 @@
 <?php
-//Packages Product Veri tabanında hataları çözülecek.... İç içe eklenemiyor..
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -11,6 +10,8 @@ use App\Http\Controllers\Database\DBCardController;
 use App\Product ;
 use App\Package ;
 use App\Card ;
+use App\Categori ;
+use App\SubCategori ;
 
 use App\Http\Controllers\HomeController;
 
@@ -28,8 +29,31 @@ class ProductController extends Controller
         
     	$userData = Auth::user();
     	$product = Product::find($product_id);
+        
+        $sub_categori = SubCategori::find($product->sub_categori_id);
+        
+        
 
-    	return view("product.productDetailPage" , ["userData"=>$userData ,"product" => $product]);
+        $categoriStr = "Categori yok";
+        $subcategoriStr  ="alt Categori yok";
+
+        if($sub_categori != null){
+            $subcategoriStr = $sub_categori->subcategori_name;
+
+            $categori = Categori::find($sub_categori->categori_id);
+            if($categori != null)
+                $categoriStr = $categori->categori_name;
+        }
+
+     
+
+    	return view("product.productDetailPage" , 
+            [
+                "userData"=>$userData,
+                "product" => $product,
+                "categori_name" => $categoriStr,
+                "sub_categori_name" =>  $subcategoriStr
+            ]);
     }
     public function takeProduct(Request $request , $product_id){
 
