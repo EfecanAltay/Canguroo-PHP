@@ -4,7 +4,7 @@
     "description": "a shopping app with Laravel",
     "language": "php",
     "repositories": [
-        {"type": "composer", "url": "https://repo.packagist.com/wrisesoftware/"},
+        {"type": "composer", "url": "https://packagist.org/packages/efecanaltay/canguroo"},
         {"packagist.org": false}
     ],
     "keywords": [
